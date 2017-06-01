@@ -1,0 +1,68 @@
+<resources>
+
+    <!--调用:
+    1.清单文件对应activity便签中调用 android:theme="@style/Theme.NoActionBar"
+    2.对应控件调用 android:theme="@style/Theme.NoActionBar"-->
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--对应ActionBar颜色-->
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <!--对应状态栏颜色-->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--对应EditText 光标 颜色-->
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+
+    <!--ToolbarActivity 的Theme-->
+    <style name="AppTheme.NoActionBar">
+        <!--隐藏ActionBar-->
+        <item name="windowActionBar">false</item>
+        <!--隐藏Title 标题栏(状态栏)-->
+        <item name="windowNoTitle">true</item>
+        <!--Title,item字体颜色-->
+        <item name="android:textColorPrimary">#f00fff</item>
+        <!--窗体背景颜色-->
+        <item name="android:windowBackground">@color/colorBackground</item>
+        <!--底部操作栏颜色 API>21-->
+        <item name="android:navigationBarColor">#33f000</item>
+        <!--控件的默认颜色,如复选框未选中时的颜色,本文右上角的溢出菜单-->
+        <item name="android:colorControlNormal">#ffffff</item>
+    </style>
+
+    <!--ToolbarActivity2 的Theme-->
+    <style name="AppTheme.NoActionBar2">
+        <!--隐藏ActionBar-->
+        <item name="windowActionBar">false</item>
+        <!--隐藏Title 标题栏(状态栏)-->
+        <item name="windowNoTitle">true</item>
+        <!--Title,item字体颜色-->
+        <item name="android:textColorPrimary">#ff0000</item>
+        <!--窗体背景颜色-->
+        <item name="android:windowBackground">@color/colorAccent</item>
+        <!--底部操作栏颜色 API>21-->
+        <item name="android:navigationBarColor">#4CAF50</item>
+        <!--控件的默认颜色,如复选框未选中时的颜色,本文右上角的溢出菜单-->
+        <item name="android:colorControlNormal">#00BCD4</item>
+
+    </style>
+
+    <!--ToolbarActivity 弹出menu 的Theme-->
+    <style name="AppTheme.menu1">
+        <!--字体颜色-->
+        <item name="android:textColor">#fff</item>
+        <!--字体大小-->
+        <item name="android:textSize">18sp</item>
+        <!--&lt;!&ndash;背景色&ndash;&gt;-->
+        <item name="android:colorBackground">#000</item>
+        <!--选中颜色-->
+        <item name="android:selectableItemBackground">@drawable/item_selector</item>
+
+        <!-- 是否覆盖锚点，默认为true，即盖住Toolbar -->
+        <item name="overlapAnchor">false</item>
+
+    </style>
+
+
+</resources>
