@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/customcontrols" />
+            <option value="$PROJECT_DIR$/expand_edittext" />
             <option value="$PROJECT_DIR$/gridlayout" />
             <option value="$PROJECT_DIR$/toolbar" />
           </set>

@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/MyControls.iml" filepath="$PROJECT_DIR$/MyControls.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/customcontrols/customcontrols.iml" filepath="$PROJECT_DIR$/customcontrols/customcontrols.iml" />
+      <module fileurl="file://$PROJECT_DIR$/expand_edittext/expand_edittext.iml" filepath="$PROJECT_DIR$/expand_edittext/expand_edittext.iml" />
       <module fileurl="file://$PROJECT_DIR$/gridlayout/gridlayout.iml" filepath="$PROJECT_DIR$/gridlayout/gridlayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/toolbar/toolbar.iml" filepath="$PROJECT_DIR$/toolbar/toolbar.iml" />
     </modules>

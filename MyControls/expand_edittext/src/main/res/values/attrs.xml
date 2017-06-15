@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  reference：参考某一资源ID
+  color：颜色值
+  boolean：布尔值
+  dimension：尺寸值
+  float：浮点值
+  integer：整型值
+  string：字符串
+  fraction：百分数
+  enum：枚举值 多值选一
+  flag：位或运算，多值组合，用 | 分隔 -->
+<resources>
+    <declare-styleable name="DrawableEditText">
+
+        <!--左侧Drawable的宽度-->
+        <attr name="leftDrawableWidth" format="dimension"/>
+        <!--左侧Drawable的高度-->
+        <attr name="leftDrawableHeight" format="dimension"/>
+        <!--右侧Drawable的宽度-->
+        <attr name="rightDrawableWidth" format="dimension"/>
+        <!--右侧Drawable的高度-->
+        <attr name="rightDrawableHeight" format="dimension"/>
+
+
+
+    </declare-styleable>
+</resources>

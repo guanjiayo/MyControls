@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#aea3a3"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context="zs.xmx.MainActivity">
+
+
+    <!--设置android:drawableLeft/Right属性后-->
+    <!--命名空间方法设置drawable大小-->
+    <zs.xmx.weight.DrawableEditText
+        android:id="@+id/et_drawable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@mipmap/ic_launcher_round"
+        android:drawableLeft="@mipmap/ic_launcher_round"
+        android:drawablePadding="2dp"
+        android:drawableRight="@mipmap/ic_launcher"
+        android:drawableStart="@mipmap/ic_launcher"
+        android:hint="DrawableEditText 演示"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        app:leftDrawableHeight="40dp"
+        app:leftDrawableWidth="40dp"
+        app:rightDrawableHeight="20dp"
+        app:rightDrawableWidth="20dp"
+
+        />
+
+
+    <!--添加了一个边框背景选择器-->
+    <zs.xmx.weight.ClearEditText
+        android:id="@+id/et_clear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg_selector"
+        android:hint="ClearEditText 演示"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:paddingLeft="5dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="如果不需要drawableLeft/Right属性,
+    建议原生TextInputLayout嵌套这里的几个EditText 基本能满足日常开发需求"
+        android:textColor="#F00"/>
+
+    <!--原生TextInputLayout 设置了passwordToggle和tint属性-->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/editext_til"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <zs.xmx.weight.ClearEditText
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:id="@+id/et_pwd_til"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="原生TextInputLayout嵌套ClearEditText 演示"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <!--设置背景为null,去掉下滑线效果-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="pwd_til"
+        android:text="晃动"/>
+
+    <zs.xmx.weight.PasswordEditText
+        android:id="@+id/et_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="PasswordEditText 演示"
+        android:paddingLeft="20dp"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="pwd"
+        android:text="晃动"/>
+
+
+
+
+</LinearLayout>
