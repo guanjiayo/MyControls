@@ -74,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
         passwordEditText = (PasswordEditText) findViewById(R.id.et_pwd);
         textInputLayout = (TextInputLayout) findViewById(R.id.editext_til);
 
-        TextInputLayout test = (TextInputLayout) findViewById(R.id.til_test);
-        test.setError("dsadasdasdsada");
 
     }
 

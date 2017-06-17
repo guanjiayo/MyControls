@@ -1,1 +1,1 @@
-include ':app', ':customcontrols', ':toolbar', ':gridlayout', ':expand_edittext'
+include ':app', ':customcontrols', ':toolbar', ':gridlayout', ':expand_edittext', ':widget_demo'
