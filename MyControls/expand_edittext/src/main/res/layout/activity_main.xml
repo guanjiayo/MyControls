@@ -53,7 +53,11 @@
     建议原生TextInputLayout嵌套这里的几个EditText 基本能满足日常开发需求"
         android:textColor="#F00"/>
 
-    <!--原生TextInputLayout 设置了passwordToggle和tint属性-->
+    <!--使用TextInputLayout.setError()记得设置样式,不然会报
+    java.lang.RuntimeException: Failed to resolve attribute at index 0
+    其他类似错误同理.
+    -->
+    <!--app:errorTextAppearance="@style/Theme.AppCompat"-->
     <android.support.design.widget.TextInputLayout
         android:id="@+id/editext_til"
         android:layout_width="match_parent"
@@ -62,12 +66,12 @@
         >
 
         <zs.xmx.weight.ClearEditText
-            android:imeOptions="actionNext"
-            android:inputType="text"
             android:id="@+id/et_pwd_til"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="原生TextInputLayout嵌套ClearEditText 演示"
+            android:imeOptions="actionNext"
+            android:inputType="text"
             />
 
     </android.support.design.widget.TextInputLayout>
@@ -85,9 +89,9 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:hint="PasswordEditText 演示"
-        android:paddingLeft="20dp"
         android:imeOptions="actionNext"
         android:inputType="text"
+        android:paddingLeft="20dp"
         />
 
     <Button
@@ -95,8 +99,6 @@
         android:layout_height="wrap_content"
         android:onClick="pwd"
         android:text="晃动"/>
-
-
 
 
 </LinearLayout>

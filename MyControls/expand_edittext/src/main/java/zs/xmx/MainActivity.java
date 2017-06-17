@@ -37,6 +37,11 @@ import zs.xmx.weight.PasswordEditText;
  *           4. 模仿TextInputLayout实现浮动标签
  *           5. 自定义EditText光标实现波纹动画
  *
+ * 注意:
+ * <!--使用TextInputLayout.setError()记得设置样式,不然会报
+    java.lang.RuntimeException: Failed to resolve attribute at index 0
+    其他类似错误同理.
+    -->
  *
  *
  * ---------------------------------
@@ -68,6 +73,10 @@ public class MainActivity extends AppCompatActivity {
         passwordEditText_til = (ClearEditText) findViewById(R.id.et_pwd_til);
         passwordEditText = (PasswordEditText) findViewById(R.id.et_pwd);
         textInputLayout = (TextInputLayout) findViewById(R.id.editext_til);
+
+        TextInputLayout test = (TextInputLayout) findViewById(R.id.til_test);
+        test.setError("dsadasdasdsada");
+
     }
 
 
