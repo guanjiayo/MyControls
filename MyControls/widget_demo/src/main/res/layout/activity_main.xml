@@ -8,18 +8,34 @@
     tools:context="zs.xmx.MainActivity">
 
 
-    <TextView
-        android:textSize="30sp"
-        android:id="@+id/textView"
+
+    <Button
+        android:onClick="register"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MainActivity"
+        android:layout_height="0dp"
         android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
+        android:layout_marginTop="53dp"
+        android:text="注册widget"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
+        />
+
+    <Button
+        android:onClick="cancel"
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:text="取消widget"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.146"/>
 </android.support.constraint.ConstraintLayout>

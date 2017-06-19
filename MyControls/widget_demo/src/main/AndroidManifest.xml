@@ -16,18 +16,28 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".SerachActivity">
+        </activity>
 
-        <receiver android:name=".NewAppWidget">
+        <receiver android:name=".receiver.MyAppWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/new_app_widget_info"/>
+                android:resource="@xml/my_app_widget_info"/>
         </receiver>
 
-        <activity android:name=".SerachActivity">
+        <!--UpdateService-->
+        <service
+            android:name=".service.UpdateService"
+            android:exported="false"
+            android:permission="android.permission.BIND_REMOTEVIEWS">
+        </service>
+
+
+        <activity android:name=".ShopActivity">
         </activity>
     </application>
 
