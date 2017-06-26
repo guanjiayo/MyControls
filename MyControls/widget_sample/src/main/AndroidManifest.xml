@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="zs.xmx">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!--SimpleAppWidgetConfig-->
+        <receiver android:name=".simple.SimpleAppWidget">
+            <intent-filter>
+                <!--指定AppWidgetProvider接受系统的APPWIDGET_UPDATE广播-->
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+
+            <!--指定Meta_data名称,使用android.appwidgetb必须确定AppWidgetProviderInfo描述符的数据-->
+            <!--指定AppWidgetProviderInfo资源XML文件-->
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/example_app_widget_info"/>
+        </receiver>
+
+        <activity android:name=".simple.SimpleAppWidgetConfigureActivity">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".simple.SimpleActivity">
+        </activity>
+
+        <!--start         MyRemote App Widgets            start-->
+        <!--MyRemoteService-->
+        <service
+            android:name=".remote.MyRemoteService"
+            android:permission="android.permission.BIND_REMOTEVIEWS">
+        </service>
+
+        <!--MyRemoteAppWidget-->
+        <receiver android:name=".remote.MyRemoteAppWidget">
+            <intent-filter>
+                <!--指定AppWidgetProvider接受系统的APPWIDGET_UPDATE广播-->
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <!--指定Meta_data名称,使用android.appwidgetb必须确定AppWidgetProviderInfo描述符的数据-->
+            <!--指定AppWidgetProviderInfo资源XML文件-->
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/my_remote_widget_info"/>
+        </receiver>
+    </application>
+
+</manifest>
