@@ -46,7 +46,9 @@ public class MyRemoteAppWidget extends AppWidgetProvider {
         clickIntent.setData(Uri.parse(clickIntent.toUri(Intent.URI_INTENT_SCHEME)));
         PendingIntent pendingIntentTemplate = PendingIntent.getBroadcast(
                 context, 0, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
+        //使用"集合视图",如果直接setOnClickPendingIntent是不可行的,
+        //建议setPendingIntentTemplate和FillInIntent结合使用
+        //FillInIntent用于区分单个点击事件
         remoteViews.setPendingIntentTemplate(R.id.widget_list,
                 pendingIntentTemplate);
 
@@ -111,7 +113,7 @@ public class MyRemoteAppWidget extends AppWidgetProvider {
                     MyRemoteAppWidget.class);
 
             MyRemoteViewsFactory.mList.add("音乐" + i);
-            i=i+1;
+            i = i + 1;
             // 这句话会调用RemoteViewSerivce中RemoteViewsFactory的onDataSetChanged()方法。
             mgr.notifyAppWidgetViewDataChanged(mgr.getAppWidgetIds(cn),
                     R.id.widget_list);

@@ -19,11 +19,11 @@
         />
 
     <ImageView
-        android:src="@mipmap/ic_launcher_round"
         android:id="@+id/imageItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignRight="@id/item"
+        android:src="@mipmap/ic_launcher_round"
         />
 </RelativeLayout>
