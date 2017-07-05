@@ -5,7 +5,7 @@
              >
 
     <TextView
-        android:textSize="24sp"
+        android:textSize="16sp"
         android:layout_margin="5dp"
         android:id="@+id/tv_item"
         android:layout_width="wrap_content"

@@ -9,33 +9,32 @@ import android.view.WindowManager;
  * @创建者     xmx
  * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2017/7/3
- * @本类描述	  adjustPan(软键盘测试)
- * @内容说明   1. 当控件设置了background属性,或设置了权重的imageView不会发生变形
- *            2. 当点击第一个EditText时,下方的EditText会被软键盘覆盖
- *            3. 弹出软键盘会把上方布局挤到屏幕外
- *            4. adjustPan不会有失效的情况
- *            5. 父布局不管是线性布局还是相对布局,效果一样
- *
- *
+ * @本类描述	  adjustResize(软键盘测试)
+ * @内容说明   1. 全屏模式下,adjustResize失效
+ *            2. 设置了沉浸式状态栏但不设置fitSystemWindow为true时,adjustResize失效
+ *            3. 弹出软键盘时不会将上方布局挤出屏幕外
+ *            4. 当控件设置了background属性,或设置了权重的imageView会发生变形
+ *            5. 当使用LinearLayout作为输入框的父布局时,软键盘会覆盖输入框
  *
  * @补充内容  //TODO 写一个方法替换根布局
- *           //TODO 布局加一个ListView
+ *
  *
  * ---------------------------------
  * @更新时间
  * @新增内容
  *
  */
-public class AdjustPan_KeyboardActivity extends AppCompatActivity {
+public class AdjustResize_KeyboardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //requestWindowFeature(Window.FEATURE_NO_TITLE); // 去除标题  必须在setContentView()方法之前调用
-        setContentView(R.layout.activity_pan);
-        // getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); // 设置全屏
+        //  requestWindowFeature(Window.FEATURE_NO_TITLE); // 去除标题  必须在setContentView()方法之前调用
+        setContentView(R.layout.activity_resize);
+
 
     }
+
 
     public void FullScreen(View view) {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); // 设置全屏

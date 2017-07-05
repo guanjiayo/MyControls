@@ -7,7 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/customcontrols/customcontrols.iml" filepath="$PROJECT_DIR$/customcontrols/customcontrols.iml" />
       <module fileurl="file://$PROJECT_DIR$/expand_edittext/expand_edittext.iml" filepath="$PROJECT_DIR$/expand_edittext/expand_edittext.iml" />
       <module fileurl="file://$PROJECT_DIR$/gridlayout/gridlayout.iml" filepath="$PROJECT_DIR$/gridlayout/gridlayout.iml" />
-      <module fileurl="file://$PROJECT_DIR$/keyboard/keyboard.iml" filepath="$PROJECT_DIR$/keyboard/keyboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/keyboard_demo/keyboard_demo.iml" filepath="$PROJECT_DIR$/keyboard_demo/keyboard_demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/toolbar/toolbar.iml" filepath="$PROJECT_DIR$/toolbar/toolbar.iml" />
       <module fileurl="file://$PROJECT_DIR$/widget_sample/widget_sample.iml" filepath="$PROJECT_DIR$/widget_sample/widget_sample.iml" />
     </modules>

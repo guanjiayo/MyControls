@@ -16,11 +16,11 @@ import android.widget.TextView;
  * @创建者     xmx
  * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2017/7/3
- * @本类描述	  ScrollView 嵌套布局(软键盘测试)
- * @内容说明   1. 用ScrollView嵌套的布局,当弹出软键盘时,ScrollView布局上移,但不会超出屏幕
- *            2. xml布局文件不能直接把宽高之类的参数定死
- *            3. 使用了ScrollView嵌套,不需要在清单文件设置android:windowSoftInputMode
- * @补充内容
+ * @本类描述
+ * @内容说明
+ *
+ *
+ * @补充内容  //TODO 每个界面加一个TextView 注释
  *
  * ---------------------------------
  * @更新时间
@@ -29,14 +29,13 @@ import android.widget.TextView;
  */
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private String[] itemName = {"ScrollView 嵌套布局(软键盘测试)", "adjustResize(软键盘测试)",
-            "adjustPan(软键盘测试)", "跟随软键盘移动整个界面", "全屏模式,输入框上移但标题栏不会挤到屏幕外"};
+            "adjustPan(软键盘测试)", "处理AdjustResize失效(全屏模式)", "处理AdjustResize失效(沉浸式状态栏)", "跟随软键盘移动整个界面", "全屏模式,输入框上移但标题栏不会挤到屏幕外"};
     ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(new ClassAdapter(this, R.layout.item_list, itemName));
         listView.setOnItemClickListener(this);
@@ -55,8 +54,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(new Intent(this, AdjustPan_KeyboardActivity.class));
                 break;
             case 3:
+                startActivity(new Intent(this, FullscreenFail_Activity.class));
+                break;
+            case 4:
+                startActivity(new Intent(this, StatusBarFail_KeyboardActivity.class));
+                break;
+            case 5:
                 startActivity(new Intent(this, Allup_KeyboardActivity.class));
                 break;
+            case 6:
+                startActivity(new Intent(this, Complex_KeyboardActivity.class));
+                break;
+
+
         }
     }
 

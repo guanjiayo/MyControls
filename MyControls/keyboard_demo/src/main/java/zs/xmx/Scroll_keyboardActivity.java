@@ -19,8 +19,9 @@ import android.view.WindowManager;
  *            7. 使用ScrollView,不存在下方EditText被覆盖问题,因为可以滑动
  *
  * @补充内容  //TODO 写一个可以切换根布局的方法
- *           //TODO 使用了5497类,只能显示15个,看下是什么问题
- *           //TODO 布局加一个ListView
+ *
+ *
+ *
  *
  * ---------------------------------
  * @更新时间
@@ -45,5 +46,13 @@ public class Scroll_keyboardActivity extends AppCompatActivity {
     public void CancelFullScreen(View view) {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); // 设置全屏
 
+    }
+
+    public void AdjustPan(View view) {
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+    }
+
+    public void AdjustResize(View view) {
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
     }
 }
