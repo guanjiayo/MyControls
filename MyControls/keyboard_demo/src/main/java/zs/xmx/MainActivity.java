@@ -12,6 +12,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import zs.xmx.activity.AdjustPan_KeyboardActivity;
+import zs.xmx.activity.AdjustResize_KeyboardActivity;
+import zs.xmx.activity.KeyboardToggleActivity;
+import zs.xmx.activity.ScrollViewByClassActivity;
+import zs.xmx.activity.ScrollViewByLayoutActivity;
+import zs.xmx.activity.Scroll_keyboardActivity;
+import zs.xmx.activity.StatusBarFail_KeyboardActivity;
+
 /*
  * @创建者     xmx
  * @博客       http://blog.csdn.net/u012792686
@@ -20,7 +28,7 @@ import android.widget.TextView;
  * @内容说明
  *
  *
- * @补充内容  //TODO 每个界面加一个TextView 注释
+ * @补充内容
  *
  * ---------------------------------
  * @更新时间
@@ -29,7 +37,7 @@ import android.widget.TextView;
  */
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private String[] itemName = {"ScrollView 嵌套布局(软键盘测试)", "adjustResize(软键盘测试)",
-            "adjustPan(软键盘测试)", "处理AdjustResize失效(全屏模式)", "处理AdjustResize失效(沉浸式状态栏)", "跟随软键盘移动整个界面", "全屏模式,输入框上移但标题栏不会挤到屏幕外"};
+            "adjustPan(软键盘测试)", "处理AdjustResize失效(沉浸式状态栏)", "滚动自定义布局(工具类方法)", "滚动自动义布局(监听布局方式)", "动态开启/关闭软键盘"};
     ListView listView;
 
     @Override
@@ -54,16 +62,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(new Intent(this, AdjustPan_KeyboardActivity.class));
                 break;
             case 3:
-                startActivity(new Intent(this, FullscreenFail_Activity.class));
-                break;
-            case 4:
                 startActivity(new Intent(this, StatusBarFail_KeyboardActivity.class));
                 break;
+            case 4:
+                startActivity(new Intent(this, ScrollViewByClassActivity.class));
+                break;
             case 5:
-                startActivity(new Intent(this, Allup_KeyboardActivity.class));
+                startActivity(new Intent(this, ScrollViewByLayoutActivity.class));
                 break;
             case 6:
-                startActivity(new Intent(this, Complex_KeyboardActivity.class));
+                startActivity(new Intent(this, KeyboardToggleActivity.class));
                 break;
 
 

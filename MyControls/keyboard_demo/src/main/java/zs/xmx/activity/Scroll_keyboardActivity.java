@@ -1,9 +1,11 @@
-package zs.xmx;
+package zs.xmx.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
+
+import zs.xmx.R;
 
 /*
  * @创建者     xmx

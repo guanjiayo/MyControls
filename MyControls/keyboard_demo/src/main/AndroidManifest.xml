@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="zs.xmx">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,26 +23,30 @@
         <!-- android:windowSoftInputMode="adjustPan" -->
         <!-- android:windowSoftInputMode="adjustResize" -->
         <activity
-            android:name=".AdjustResize_KeyboardActivity"
+            android:name=".activity.AdjustResize_KeyboardActivity"
             android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".Scroll_keyboardActivity"/>
+        <activity android:name=".activity.Scroll_keyboardActivity"/>
         <activity
-            android:name=".AdjustPan_KeyboardActivity"
+            android:name=".activity.AdjustPan_KeyboardActivity"
             android:windowSoftInputMode="adjustPan"/>
         <activity
-            android:name=".Allup_KeyboardActivity"
+            android:name=".activity.ScrollViewByLayoutActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="adjustResize">
         </activity>
         <activity
-            android:name=".Complex_KeyboardActivity"
-            android:windowSoftInputMode="adjustResize">
+            android:name=".activity.StatusBarFail_KeyboardActivity"
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
-            android:name=".FullscreenFail_Activity"
-            android:windowSoftInputMode="adjustResize">
+            android:name=".activity.ScrollViewByClassActivity"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
         </activity>
-        <activity android:name=".StatusBarFail_KeyboardActivity"
-            >
+        <activity
+            android:name=".activity.KeyboardToggleActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden">
+        </activity>
+        <activity android:name=".activity.Linkage_keyboardActivity">
         </activity>
     </application>
 

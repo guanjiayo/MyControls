@@ -3,7 +3,7 @@ package zs.xmx.utils;
  * @创建者     xmx
  * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2017/7/4
- * @本类描述   针对adjustResize失效处理类(输入框父布局是ScrollView)
+ * @本类描述   针对adjustResize失效处理类(输入框父布局是NestedScrollView)
  * @内容说明   ${TODO} 全屏模式下有问题
  * @补充内容
  *
@@ -15,38 +15,38 @@ package zs.xmx.utils;
 
 import android.app.Activity;
 import android.graphics.Rect;
+import android.support.v4.widget.NestedScrollView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
-import android.widget.ScrollView;
 
 /**
  * 注意:
- * 在Activity对ScrollView要设置一下滑动
+ * 在Activity对NestedScrollView要设置一下滑动
  * <p>
- * ScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {         //scroll为parent外面那层布局（）最好用NestedScrollView，ScrollView会有版本问题
+ * NestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {         //scroll为parent外面那层布局（）最好用NestedScrollView，ScrollView会有版本问题
  *
  * @Override public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
  * v.scrollTo(0, 450);     //这个是滑动距离，随便大一点就好
  * }
  * });
  */
-public class ScrollView_KeyboardUtils {
-    private static final String TAG = "ScrollView_KeyboardUtils";
+public class NestedScrollView_KeyboardUtils {
+    private static final String TAG = "NestedScrollView_KeyboardUtils";
 
     /**
      * @param activity 上下文
      * @param viewId   NestedScrollView_ID
      */
     public static void assistActivity(Activity activity, int viewId) {
-        new ScrollView_KeyboardUtils(activity, viewId);
+        new NestedScrollView_KeyboardUtils(activity, viewId);
     }
 
-    private View       mChildOfContent;
-    private ScrollView mScrollView;
+    private View             mChildOfContent;
+    private NestedScrollView mScrollView;
 
-    private ScrollView_KeyboardUtils(Activity activity, int viewId) {
+    private NestedScrollView_KeyboardUtils(Activity activity, int viewId) {
         //拿到当前XML文件的根布局
         FrameLayout content = (FrameLayout) activity
                 .findViewById(android.R.id.content);
@@ -59,7 +59,7 @@ public class ScrollView_KeyboardUtils {
                         possiblyResizeChildOfContent();
                     }
                 });
-        mScrollView = (ScrollView) content.findViewById(viewId);
+        mScrollView = (NestedScrollView) content.findViewById(viewId);
     }
 
     private void possiblyResizeChildOfContent() {

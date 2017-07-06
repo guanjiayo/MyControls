@@ -3,14 +3,15 @@ package zs.xmx.utils;
  * @创建者     xmx
  * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2017/7/1
- * @本类描述	  针对adjustResize失效处理类(输入框父布局为FrameLayout)
+ * @本类描述	  网上针对adjustResize全屏模式失效处理类
  *
- * @内容说明   解决:
- *             1.非全屏模式下使用adjustPan无效问题
- *             2.全屏模式下使用adjustResize无效问题
+ * @内容说明   本类经过几天测试,在WebView或者多个EditText控价的页面并没什么用,
+ *           不过可以用作借鉴如何绘制我们想要显示的内容在软键盘界面上方
  *
- * @补充内容   全屏模式下使用了该类,效果类似adjustResize把下方布局上移,
- *             但是也会像adjustPan把上方的布局也挤出屏幕
+ *
+ *
+ * @补充内容
+ *
  *
  * ---------------------------------     
  * @更新时间   
@@ -24,20 +25,20 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 
-public class FrameLayout_KeyboardUtils {
+public class AndroidBug5497Workaround {
 
     // For more information, see https://code.google.com/p/android/issues/detail?id=5497
     // To use this class, simply invoke assistActivity() on an Activity that already has its content view set.
 
     public static void assistActivity(Activity activity) {
-        new FrameLayout_KeyboardUtils(activity);
+        new AndroidBug5497Workaround(activity);
     }
 
     private View                     mChildOfContent;
     private int                      usableHeightPrevious;
     private FrameLayout.LayoutParams frameLayoutParams;
 
-    private FrameLayout_KeyboardUtils(Activity activity) {
+    private AndroidBug5497Workaround(Activity activity) {
 
         //拿到当前XML文件的根布局
         FrameLayout content = (FrameLayout) activity.

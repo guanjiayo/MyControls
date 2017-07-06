@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:clipToPadding="true"
+<zs.xmx.view.KeyboardLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:id="@+id/keyboardview"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fitsSystemWindows="true"
 
     >
 
-    <android.support.v4.widget.NestedScrollView
+    <ScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/ll_parent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -20,7 +20,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="#0000ff"/>
+                android:background="#00f0ff"/>
 
             <EditText
                 android:id="@+id/account"
@@ -38,6 +38,6 @@
 
         </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+    </ScrollView>
 
-</LinearLayout>
+</zs.xmx.view.KeyboardLayout>
