@@ -46,7 +46,9 @@
             android:name=".activity.KeyboardToggleActivity"
             android:windowSoftInputMode="adjustResize|stateHidden">
         </activity>
-        <activity android:name=".activity.Linkage_keyboardActivity">
+        <activity android:name=".activity.ImeOptions_keyboardActivity">
+        </activity>
+        <activity android:name=".activity.InputType_KeyboardActivity">
         </activity>
     </application>
 

@@ -14,7 +14,9 @@ import android.widget.TextView;
 
 import zs.xmx.activity.AdjustPan_KeyboardActivity;
 import zs.xmx.activity.AdjustResize_KeyboardActivity;
+import zs.xmx.activity.InputType_KeyboardActivity;
 import zs.xmx.activity.KeyboardToggleActivity;
+import zs.xmx.activity.ImeOptions_keyboardActivity;
 import zs.xmx.activity.ScrollViewByClassActivity;
 import zs.xmx.activity.ScrollViewByLayoutActivity;
 import zs.xmx.activity.Scroll_keyboardActivity;
@@ -37,7 +39,8 @@ import zs.xmx.activity.StatusBarFail_KeyboardActivity;
  */
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private String[] itemName = {"ScrollView 嵌套布局(软键盘测试)", "adjustResize(软键盘测试)",
-            "adjustPan(软键盘测试)", "处理AdjustResize失效(沉浸式状态栏)", "滚动自定义布局(工具类方法)", "滚动自动义布局(监听布局方式)", "动态开启/关闭软键盘"};
+            "adjustPan(软键盘测试)", "处理AdjustResize失效(沉浸式状态栏)", "滚动自定义布局(工具类方法)",
+            "滚动自动义布局(监听布局方式)", "动态开启/关闭软键盘", "EditText联动软键盘右下角按钮", "EditText联动软键盘界面"};
     ListView listView;
 
     @Override
@@ -73,7 +76,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case 6:
                 startActivity(new Intent(this, KeyboardToggleActivity.class));
                 break;
-
+            case 7:
+                startActivity(new Intent(this, ImeOptions_keyboardActivity.class));
+                break;
+            case 8:
+                startActivity(new Intent(this, InputType_KeyboardActivity.class));
+                break;
 
         }
     }

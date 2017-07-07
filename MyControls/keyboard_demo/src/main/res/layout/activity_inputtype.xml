@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="zs.xmx.activity.ImeOptions_keyboardActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="textShortMessage"
+                android:inputType="textShortMessage"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="textMultiLine"
+                android:imeOptions="actionGo"
+                android:inputType="textMultiLine"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="actionNext"
+                android:imeOptions="actionNext"
+                android:inputType="text"/>
+
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="actionPrevious"
+                android:imeOptions="actionPrevious"
+                android:inputType="text"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="actionSearch"
+                android:imeOptions="actionSearch"
+                android:inputType="text"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="actionSend"
+                android:imeOptions="actionSend"
+                android:inputType="text"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="actionUnspecified"
+                android:imeOptions="actionUnspecified"
+                android:inputType="text"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="actionNone"
+                android:imeOptions="actionNone"
+                android:inputType="text"/>
+
+
+            <EditText
+                android:hint="flagNoFullscreen|flagNoExtractUi(不弹出全屏幕模式的软键盘)"
+                android:inputType="text"
+                style="@style/layout_mw"
+                android:imeOptions="flagNoFullscreen|flagNoExtractUi"
+                />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

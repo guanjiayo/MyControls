@@ -96,4 +96,6 @@ public class DrawableEditText extends TextInputEditText {
         }
         this.startAnimation(getAnimation());
     }
+
+
 }
