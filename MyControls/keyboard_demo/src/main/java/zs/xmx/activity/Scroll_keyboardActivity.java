@@ -16,8 +16,8 @@ import zs.xmx.R;
  *            2. xml布局文件不能直接把宽高之类的参数定死
  *            3. ScrollView : 弹出软键盘时,可以全部滑动
  *            4. ScrollView + adjustPan : 弹出软键盘时,只能滑动部分,若输入框在界面下方时,标题栏会被挤出屏幕外
- *            5. ScrollView + adjustResize : 弹出软键盘时,可以全部滑动
- *            6. 全屏模式下,ScrollView + adjustResize,效果会变成 ScrollView + adjustPan
+ *            5. ScrollView + adjustResize : 弹出软键盘时,可以全部滑动,点击输入框,会自动调整到合适的位置
+ *            6. 全屏模式下,ScrollView + adjustResize失效,效果会变成 ScrollView + adjustPan
  *            7. 使用ScrollView,不存在下方EditText被覆盖问题,因为可以滑动
  *
  * @补充内容  //TODO 写一个可以切换根布局的方法

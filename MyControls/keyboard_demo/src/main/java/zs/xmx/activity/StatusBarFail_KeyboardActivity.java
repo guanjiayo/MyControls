@@ -35,7 +35,9 @@ public class StatusBarFail_KeyboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_statusbarfail);
         //StatusBar_keyboardUtils.assistActivity(this);
 
+        //代码方式设置adjustResize
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        //工具类设置状态栏颜色
         StatusBar.setStatusBarColor(this, Color.RED);
     }
 }

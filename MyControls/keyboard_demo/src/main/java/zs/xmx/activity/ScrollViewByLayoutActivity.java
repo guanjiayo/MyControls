@@ -15,13 +15,14 @@ import zs.xmx.view.KeyboardLayout;
  * @创建者     xmx
  * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2017/7/3
- * @本类描述   综合使用
- * @内容说明   1. 对于日常来说,ScrollView(根布局) + adujstResize 就能满足需求
- *            2. 如果设置图片或background,使用ScrollView(根布局) + adujstPan
- *            3.
+ * @本类描述   自定义View处理"全屏模式"下adjustResize失效
+ * @内容说明   原理:
+ *            1.自定义View作为我们的根布局,监听软键盘的弹出状态
+ *            2.将我们的布局滑动到合适位置
  *
  *
- * @补充内容
+ * @补充内容  注意:
+             1.改动过状态栏的状态,记得在XML布局文件根布局设置android:fitsSystemWindows
  *
  * ---------------------------------
  * @更新时间

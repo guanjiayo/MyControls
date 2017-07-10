@@ -9,16 +9,9 @@ import android.widget.EditText;
 import java.lang.ref.WeakReference;
 
 import zs.xmx.R;
-import zs.xmx.utils.KeyboardUtils;
+import zs.xmx.utils.KeyboardToggleUtils;
 
-/**
- * <pre>
- *     author: Blankj
- *     blog  : http://blankj.com
- *     time  : 2017/06/01
- *     desc  :
- * </pre>
- */
+
 public class KeyboardDialog implements View.OnClickListener {
 
     private WeakReference<Activity> mActivityWeakReference;
@@ -43,7 +36,7 @@ public class KeyboardDialog implements View.OnClickListener {
             dialogView.findViewById(R.id.btn_toggle_soft_input).setOnClickListener(this);
             dialogView.findViewById(R.id.btn_close_dialog).setOnClickListener(this);
             dialog.show();
-            KeyboardUtils.showSoftInput(activity);
+            KeyboardToggleUtils.showSoftInput(activity);
         }
     }
 
@@ -51,16 +44,16 @@ public class KeyboardDialog implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_hide_soft_input:
-                KeyboardUtils.hideSoftInput(etInput);
+                KeyboardToggleUtils.hideSoftInput(etInput);
                 break;
             case R.id.btn_show_soft_input:
-                KeyboardUtils.showSoftInput(etInput);
+                KeyboardToggleUtils.showSoftInput(etInput);
                 break;
             case R.id.btn_toggle_soft_input:
-                KeyboardUtils.toggleSoftInput();
+                KeyboardToggleUtils.toggleSoftInput();
                 break;
             case R.id.btn_close_dialog:
-                KeyboardUtils.hideSoftInput(etInput);
+                KeyboardToggleUtils.hideSoftInput(etInput);
                 dialog.dismiss();
                 break;
         }

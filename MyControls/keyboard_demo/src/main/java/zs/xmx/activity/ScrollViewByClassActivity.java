@@ -19,11 +19,13 @@ import zs.xmx.utils.StatusBar;
  * @创建者     xmx
  * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2017/7/3
- * @本类描述   使用重绘类()将我们需要的布局上移
- * @内容说明
+ * @本类描述   使用重绘类xxx.assistActivity()
+ *             处理部分"全屏模式"下,adjustResize失效问题
+ * @内容说明   原理:监听软键盘弹出位置,让我们的布局滑动到合适的位置
  *
  *
- * @补充内容   1.设置状态栏记得在XML布局文件根布局设置android:fitsSystemWindows
+ * @补充内容  注意:
+ *           1.改动过状态栏的状态,记得在XML布局文件根布局设置android:fitsSystemWindows
  *
  * ---------------------------------
  * @更新时间

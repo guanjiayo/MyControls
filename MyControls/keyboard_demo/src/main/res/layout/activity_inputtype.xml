@@ -70,7 +70,7 @@
 
             <EditText
                 style="@style/layout_mw"
-                android:hint="textShortMessage 短信短内容"
+                android:hint="textShortMessage 短内容(会多一个表情按钮)"
                 android:inputType="textShortMessage"/>
 
             <EditText

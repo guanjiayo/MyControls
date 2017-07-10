@@ -15,17 +15,24 @@ import android.widget.TextView;
 
 import zs.xmx.R;
 import zs.xmx.dialog.KeyboardDialog;
-import zs.xmx.utils.KeyboardUtils;
+import zs.xmx.utils.KeyboardToggleUtils;
 import zs.xmx.utils.Utils;
 
 
-/**
- * <pre>
- *     author: Blankj
- *     blog  : http://blankj.com
- *     time  : 2016/09/27
- *     desc  : Keyboard工具类Demo
- * </pre>
+/*
+ * @创建者     xmx
+ * @博客       http://blog.csdn.net/u012792686
+ * @创建时间   2017/7/3
+ * @本类描述   动态开启/关闭软键盘
+ * @内容说明
+ *
+ *
+ * @补充内容
+ *
+ * ---------------------------------
+ * @更新时间
+ * @新增内容
+ *
  */
 public class KeyboardToggleActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -98,16 +105,16 @@ public class KeyboardToggleActivity extends AppCompatActivity implements View.On
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_hide_soft_input:
-                KeyboardUtils.hideSoftInput(this);
+                KeyboardToggleUtils.hideSoftInput(this);
                 break;
             case R.id.btn_show_soft_input:
-                KeyboardUtils.showSoftInput(this);
+                KeyboardToggleUtils.showSoftInput(this);
                 break;
             case R.id.btn_toggle_soft_input:
-                KeyboardUtils.toggleSoftInput();
+                KeyboardToggleUtils.toggleSoftInput();
                 break;
             case R.id.btn_keyboard_in_fragment:
-                KeyboardUtils.hideSoftInput(this);
+                KeyboardToggleUtils.hideSoftInput(this);
                 new KeyboardDialog(this).show();
                 break;
         }

@@ -6,17 +6,24 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-/**
- * <pre>
- *     author: Blankj
- *     blog  : http://blankj.com
- *     time  : 2016/08/02
- *     desc  : 键盘相关工具类
- * </pre>
+/*
+ * @创建者     xmx
+ * @博客       http://blog.csdn.net/u012792686
+ * @创建时间   2017/7/3
+ * @本类描述   软键盘开关工具类
+ * @内容说明
+ *
+ *
+ * @补充内容
+ *
+ * ---------------------------------
+ * @更新时间
+ * @新增内容
+ *
  */
-public final class KeyboardUtils {
+public final class KeyboardToggleUtils {
 
-    private KeyboardUtils() {
+    private KeyboardToggleUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
