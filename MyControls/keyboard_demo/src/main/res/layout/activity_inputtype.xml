@@ -18,59 +18,65 @@
 
             <EditText
                 style="@style/layout_mw"
-                android:hint="textShortMessage"
-                android:inputType="textShortMessage"/>
+                android:hint="textCapWords 单词首字母大写"
+                android:inputType="textCapWords"/>
 
             <EditText
                 style="@style/layout_mw"
-                android:hint="textMultiLine"
+                android:hint="textMultiLine 多行输入(imeOptions)"
                 android:imeOptions="actionGo"
                 android:inputType="textMultiLine"/>
 
             <EditText
                 style="@style/layout_mw"
-                android:hint="actionNext"
-                android:imeOptions="actionNext"
-                android:inputType="text"/>
+                android:hint="textImeMultiLine 多行输入(需要输入法支持)"
+                android:inputType="textImeMultiLine"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="date 日期"
+                android:inputType="date"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="time 时间"
+                android:inputType="time"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="datetime 日期时间"
+                android:inputType="datetime"/>
 
 
             <EditText
                 style="@style/layout_mw"
-                android:hint="actionPrevious"
-                android:imeOptions="actionPrevious"
-                android:inputType="text"/>
+                android:hint="numberDecimal 允许数字带小数"
+                android:inputType="numberDecimal"/>
 
             <EditText
                 style="@style/layout_mw"
-                android:hint="actionSearch"
-                android:imeOptions="actionSearch"
-                android:inputType="text"/>
+                android:hint="textEmailAddress 邮件地址"
+                android:inputType="textEmailAddress"/>
 
             <EditText
                 style="@style/layout_mw"
-                android:hint="actionSend"
-                android:imeOptions="actionSend"
-                android:inputType="text"/>
+                android:hint="textEmailSubject 邮件主题"
+                android:inputType="textEmailSubject"/>
 
             <EditText
                 style="@style/layout_mw"
-                android:hint="actionUnspecified"
-                android:imeOptions="actionUnspecified"
-                android:inputType="text"/>
+                android:hint="textLongMessage 短信长内容"
+                android:inputType="textLongMessage"/>
 
             <EditText
                 style="@style/layout_mw"
-                android:hint="actionNone"
-                android:imeOptions="actionNone"
-                android:inputType="text"/>
-
+                android:hint="textShortMessage 短信短内容"
+                android:inputType="textShortMessage"/>
 
             <EditText
-                android:hint="flagNoFullscreen|flagNoExtractUi(不弹出全屏幕模式的软键盘)"
-                android:inputType="text"
                 style="@style/layout_mw"
-                android:imeOptions="flagNoFullscreen|flagNoExtractUi"
-                />
+                android:hint="textUri URI"
+                android:inputType="textUri"/>
 
 
         </LinearLayout>
