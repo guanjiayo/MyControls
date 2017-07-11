@@ -18,8 +18,24 @@
 
             <EditText
                 style="@style/layout_mw"
+                android:hint="text 文本"
+                android:inputType="text"/>
+
+
+            <EditText
+                style="@style/layout_mw"
                 android:hint="textCapWords 单词首字母大写"
                 android:inputType="textCapWords"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="textCapCharacters 字母大写"
+                android:inputType="textCapCharacters"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="textCapSentences 仅第一字母大写"
+                android:inputType="textCapSentences"/>
 
             <EditText
                 style="@style/layout_mw"
@@ -31,27 +47,6 @@
                 style="@style/layout_mw"
                 android:hint="textImeMultiLine 多行输入(需要输入法支持)"
                 android:inputType="textImeMultiLine"/>
-
-            <EditText
-                style="@style/layout_mw"
-                android:hint="date 日期"
-                android:inputType="date"/>
-
-            <EditText
-                style="@style/layout_mw"
-                android:hint="time 时间"
-                android:inputType="time"/>
-
-            <EditText
-                style="@style/layout_mw"
-                android:hint="datetime 日期时间"
-                android:inputType="datetime"/>
-
-
-            <EditText
-                style="@style/layout_mw"
-                android:hint="numberDecimal 允许数字带小数"
-                android:inputType="numberDecimal"/>
 
             <EditText
                 style="@style/layout_mw"
@@ -75,8 +70,78 @@
 
             <EditText
                 style="@style/layout_mw"
-                android:hint="textUri URI"
+                android:hint="text UrI"
                 android:inputType="textUri"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="textAutoComplete 文本自动补全"
+                android:inputType="textAutoComplete"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="textAutoCorrect 文本自动修正"
+                android:inputType="textAutoCorrect"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="textFilter 文本筛选过滤"
+                android:inputType="textFilter"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="textPassword 密码"
+                android:inputType="textPassword"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="textPersonName 人名"
+                android:inputType="textPersonName"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="textPhonetic 拼音输入"
+                android:inputType="textPhonetic"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="phone 电话号码"
+                android:inputType="phone"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="date 日期"
+                android:inputType="date"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="time 时间"
+                android:inputType="time"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="datetime 日期时间"
+                android:inputType="datetime"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="number 数字"
+                android:inputType="number"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="numberDecimal 允许数字带小数"
+                android:inputType="numberDecimal"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="numberPassword 数字密码"
+                android:inputType="numberPassword"/>
+
+            <EditText
+                style="@style/layout_mw"
+                android:hint="number 数字签名"
+                android:inputType="numberSigned"/>
 
 
         </LinearLayout>

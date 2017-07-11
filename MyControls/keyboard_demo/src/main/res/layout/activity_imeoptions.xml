@@ -7,14 +7,61 @@
     android:orientation="vertical"
     tools:context="zs.xmx.activity.ImeOptions_keyboardActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#af0"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/layout_mw"
+            android:background="@color/black"
+            android:text="imeOptions 简单使用示例:"
+            android:textColor="@color/white"
+            />
+
+        <EditText
+            android:id="@+id/et_search"
+            style="@style/layout_mw"
+            android:hint="EditorInfo.IME_ACTION_SEARCH 搜索"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            />
+
+        <EditText
+            android:inputType="text"
+            android:id="@+id/et_next"
+            style="@style/layout_mw"
+            android:hint="EditorInfo.IME_ACTION_NEXT"
+            android:imeOptions="actionNext"
+            />
+
+        <EditText
+            android:inputType="text"
+            android:id="@+id/et_done"
+            style="@style/layout_mw"
+            android:hint="EditorInfo.IME_ACTION_DONE"
+            android:imeOptions="actionDone"
+            />
+
+
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
+            <TextView
+                style="@style/layout_mw"
+                android:background="@color/black"
+                android:text="其他属性效果:"
+                android:textColor="@color/white"
+                />
 
             <EditText
                 style="@style/layout_mw"
@@ -67,17 +114,11 @@
 
 
             <EditText
-                android:hint="flagNoFullscreen|flagNoExtractUi(不弹出全屏幕模式的软键盘)"
-                android:inputType="text"
                 style="@style/layout_mw"
+                android:hint="flagNoFullscreen|flagNoExtractUi(不弹出全屏幕模式的软键盘)"
                 android:imeOptions="flagNoFullscreen|flagNoExtractUi"
+                android:inputType="text"
                 />
-
-
-
-
-
-
 
 
         </LinearLayout>
