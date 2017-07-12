@@ -1,7 +1,7 @@
 package zs.xmx.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import zs.xmx.R;
 /*
@@ -12,7 +12,7 @@ import zs.xmx.R;
  * @内容说明   相关参数 android:inputType
  *
  *
- * @补充内容  //TODO 把所有参数都写到Demo上
+ * @补充内容
  *
  * ---------------------------------
  * @更新时间
@@ -26,4 +26,5 @@ public class InputType_KeyboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inputtype);
     }
+
 }

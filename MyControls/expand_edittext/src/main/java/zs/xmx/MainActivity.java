@@ -10,14 +10,7 @@ import zs.xmx.weight.ClearEditText;
 import zs.xmx.weight.DrawableEditText;
 import zs.xmx.weight.PasswordEditText;
 
-/**
- *
- *
- *
- *
- *
- *
- */
+
 /*
  * @创建者     mqm
  * @博客       http://blog.csdn.net/u012792686

@@ -39,7 +39,7 @@
 
             <EditText
                 style="@style/layout_mw"
-                android:hint="textMultiLine 多行输入(imeOptions)"
+                android:hint="textMultiLine 多行输入(设置了imeOptions可用)"
                 android:imeOptions="actionGo"
                 android:inputType="textMultiLine"/>
 
