@@ -20,15 +20,19 @@
         </activity>
 
         <!-- 静态设置输入模式 -->
-        <!-- android:windowSoftInputMode="adjustPan" -->
+
         <!-- android:windowSoftInputMode="adjustResize" -->
         <activity
             android:name=".activity.AdjustResize_KeyboardActivity"
             android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".activity.Scroll_keyboardActivity"/>
+
+        <!-- android:windowSoftInputMode="adjustPan" -->
         <activity
             android:name=".activity.AdjustPan_KeyboardActivity"
             android:windowSoftInputMode="adjustPan"/>
+
+        <activity android:name=".activity.Scroll_keyboardActivity"/>
+
         <activity
             android:name=".activity.ScrollViewByLayoutActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
@@ -48,7 +52,8 @@
         </activity>
         <activity android:name=".activity.ImeOptions_keyboardActivity">
         </activity>
-        <activity android:name=".activity.InputType_KeyboardActivity">
+        <activity android:name=".activity.InputType_KeyboardActivity"
+            >
         </activity>
     </application>
 
