@@ -25,7 +25,7 @@ import zs.xmx.utils.StatusBar;
  *
  *
  * @补充内容  注意:
- *           1.改动过状态栏的状态,记得在XML布局文件根布局设置android:fitsSystemWindows
+ *           1.改动过状态栏的状态,记得在XML布局文件根布局设置android:fitsSystemWindows="true"
  *
  * ---------------------------------
  * @更新时间

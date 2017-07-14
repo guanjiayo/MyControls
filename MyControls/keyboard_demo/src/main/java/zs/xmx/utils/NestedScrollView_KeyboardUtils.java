@@ -44,6 +44,7 @@ public class NestedScrollView_KeyboardUtils {
     }
 
     private View             mChildOfContent;
+    /**android.support.v4包中,新版的ScrollView**/
     private NestedScrollView mScrollView;
 
     private NestedScrollView_KeyboardUtils(Activity activity, int viewId) {
