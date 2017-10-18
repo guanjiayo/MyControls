@@ -5,7 +5,8 @@ package zs.xmx.weight;
  * @创建时间   2017/10/17 11:54
  * @本类描述	  可包裹其他布局的流性RadioGroup
  * @内容说明
- *   使用: <RadioGrop...>
+ *   使用: <RadioGrop...
+ *             android:orientation="vertical">
  *            <LinearLayout ..>
  *                 <RadioButton..>
  *             </LinearLayout>
