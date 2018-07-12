@@ -8,7 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/expand_edittext/expand_edittext.iml" filepath="$PROJECT_DIR$/expand_edittext/expand_edittext.iml" />
       <module fileurl="file://$PROJECT_DIR$/expand_radiogroup/expand_radiogroup.iml" filepath="$PROJECT_DIR$/expand_radiogroup/expand_radiogroup.iml" />
       <module fileurl="file://$PROJECT_DIR$/gridlayout/gridlayout.iml" filepath="$PROJECT_DIR$/gridlayout/gridlayout.iml" />
-      <module fileurl="file://E:\MyControls_git\MyControls\keyboard_demo\keyboard_demo.iml" filepath="E:\MyControls_git\MyControls\keyboard_demo\keyboard_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/screenadapterlayout/screenadapterlayout.iml" filepath="$PROJECT_DIR$/screenadapterlayout/screenadapterlayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/toolbar/toolbar.iml" filepath="$PROJECT_DIR$/toolbar/toolbar.iml" />
       <module fileurl="file://$PROJECT_DIR$/widget_sample/widget_sample.iml" filepath="$PROJECT_DIR$/widget_sample/widget_sample.iml" />
     </modules>
