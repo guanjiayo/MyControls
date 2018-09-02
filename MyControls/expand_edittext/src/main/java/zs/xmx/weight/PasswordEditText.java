@@ -4,7 +4,7 @@ package zs.xmx.weight;
  * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2017/6/14
  * @本类描述
- * @内容说明
+ * @内容说明  这里的图片建议使用矢量图
  * @补充内容  这个类只是补充:
  *
  *   1.解决当使用TextInputLayout的 app:passwordToggleEnabled="true" 属性后,
@@ -12,9 +12,9 @@ package zs.xmx.weight;
  *
  *   2.EditText的setError()与TextInputLayout的passwordToggle布局冲突,建议都用TextInputLayout的
  *
- * ---------------------------------     
- * @更新时间   
- * @新增内容   
+ * ---------------------------------
+ * @更新时间
+ * @新增内容
  *
  */
 
@@ -64,14 +64,13 @@ public class PasswordEditText extends ClearEditText {
         //设置EditText文本为隐藏的(注意！需要在setSingleLine()之后调用)
         setTransformationMethod(PasswordTransformationMethod.getInstance());
 
-        mWidth = getmWidth_clear();
+        mWidth = getWidth_clear();
         Interval = getInterval();
         addRight(mWidth + Interval);
         mBitmap_invisible = createBitmap(INVISIBLE, context);
         mBitmap_visible = createBitmap(VISIBLE, context);
 
     }
-
 
 
     @Override
@@ -96,13 +95,13 @@ public class PasswordEditText extends ClearEditText {
      */
     @Override
     protected void drawClear(int translationX, Canvas canvas) {
-        float scale = 1f - (float) (translationX) / (float) (getmWidth_clear() + Interval);
-        int right = (int) (getWidth() + getScrollX() - Interval - mWidth - Interval - getmWidth_clear() * (1f - scale) / 2f);
-        int left = (int) (getWidth() + getScrollX() - Interval - mWidth - Interval - getmWidth_clear() * (scale + (1f - scale) / 2f));
-        int top = (int) ((getHeight() - getmWidth_clear() * scale) / 2);
-        int bottom = (int) (top + getmWidth_clear() * scale);
+        float scale = 1f - (float) (translationX) / (float) (getWidth_clear() + Interval);
+        int right = (int) (getWidth() + getScrollX() - Interval - mWidth - Interval - getWidth_clear() * (1f - scale) / 2f);
+        int left = (int) (getWidth() + getScrollX() - Interval - mWidth - Interval - getWidth_clear() * (scale + (1f - scale) / 2f));
+        int top = (int) ((getHeight() - getWidth_clear() * scale) / 2);
+        int bottom = (int) (top + getWidth_clear() * scale);
         Rect rect = new Rect(left, top, right, bottom);
-        canvas.drawBitmap(getmBitmap_clear(), null, rect, null);
+        canvas.drawBitmap(getBitmap_clear(), null, rect, null);
     }
 
     @Override

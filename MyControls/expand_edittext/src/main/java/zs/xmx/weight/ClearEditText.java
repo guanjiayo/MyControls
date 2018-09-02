@@ -26,9 +26,9 @@ import zs.xmx.utils.DensityUtils;
  * @内容说明
  * @补充内容
  *
- * ---------------------------------     
- * @更新时间   
- * @新增内容   
+ * ---------------------------------
+ * @更新时间
+ * @新增内容
  *
  */
 
@@ -74,7 +74,7 @@ public class ClearEditText extends DrawableEditText {
 
     public ClearEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-         init(context);
+        init(context);
     }
 
 
@@ -134,8 +134,6 @@ public class ClearEditText extends DrawableEditText {
     }
 
 
-
-
     /**
      * 绘制清除按钮消失的图案
      *
@@ -155,7 +153,7 @@ public class ClearEditText extends DrawableEditText {
      * 开始清除按钮的显示动画
      */
     private void startVisibleAnimator() {
-        endAnaimator();
+        endAnimator();
         mAnimator_visible.start();
         invalidate();
     }
@@ -164,7 +162,7 @@ public class ClearEditText extends DrawableEditText {
      * 开始清除按钮的消失动画
      */
     private void startGoneAnimator() {
-        endAnaimator();
+        endAnimator();
         mAnimator_gone.start();
         invalidate();
     }
@@ -172,7 +170,7 @@ public class ClearEditText extends DrawableEditText {
     /**
      * 结束所有动画
      */
-    private void endAnaimator() {
+    private void endAnimator() {
         mAnimator_gone.end();
         mAnimator_visible.end();
     }
@@ -222,8 +220,6 @@ public class ClearEditText extends DrawableEditText {
     }
 
 
-
-
     /**
      * 给图标染上当前提示文本的颜色并且转出Bitmap
      *
@@ -233,10 +229,10 @@ public class ClearEditText extends DrawableEditText {
      */
     public Bitmap createBitmap(int resources, Context context) {
         final Drawable drawable = ContextCompat.getDrawable(context, resources);
-        final Drawable wrappedDrawable = DrawableCompat.wrap(drawable);
+        final Drawable wrappedDrawable = (DrawableCompat.wrap(drawable)).mutate();
         DrawableCompat.setTint(wrappedDrawable, getCurrentHintTextColor());
         DrawableCompat.setTintMode(wrappedDrawable, PorterDuff.Mode.SRC_IN);
-        return drawableToBitamp(wrappedDrawable);
+        return drawableToBitmap(wrappedDrawable);
     }
 
     /**
@@ -245,7 +241,7 @@ public class ClearEditText extends DrawableEditText {
      * @param drawable
      * @return
      */
-    private Bitmap drawableToBitamp(Drawable drawable) {
+    private Bitmap drawableToBitmap(Drawable drawable) {
         int w = drawable.getIntrinsicWidth();
         int h = drawable.getIntrinsicHeight();
         Bitmap.Config config = drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565;
@@ -263,11 +259,11 @@ public class ClearEditText extends DrawableEditText {
         return Interval;
     }
 
-    public int getmWidth_clear() {
+    public int getWidth_clear() {
         return mWidth_clear;
     }
 
-    public Bitmap getmBitmap_clear() {
+    public Bitmap getBitmap_clear() {
         return mBitmap_clear;
     }
 

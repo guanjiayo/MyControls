@@ -39,14 +39,16 @@ public class UIUtils {
 
     }
 
-
     public UIUtils(Context context) {
         this.context = context;
         WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
 
         //加载当前界面信息
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+
+        if (windowManager != null) {
+            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+        }
 
         /**displayMetrics.heightPixels已经去除了虚拟按键的高度**/
         //高度提取，如果有虚拟按键，那么减去了虚拟按键的长度

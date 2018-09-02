@@ -55,7 +55,7 @@ public class ScreenAdapterConstraintLayout extends ConstraintLayout {
             for (int i = 0; i < count; i++) {
                 View child = this.getChildAt(i);
 
-                //代表的是当前空间的所有属性列表
+                //代表的是当前控件下所有子控件的属性列表
                 LayoutParams layoutParams = (LayoutParams) child.getLayoutParams();
                 layoutParams.width = (int) (layoutParams.width * scaleX);
                 layoutParams.height = (int) (layoutParams.height * scaleY);

@@ -8,6 +8,7 @@ package zs.xmx.weight;
  * @补充内容   使用:
  *        <!--设置android:drawableLeft/Right属性后-->
           <!--命名空间方法设置drawable大小-->
+           输入文本与drawable的间距使用android:drawablePadding="30dp"设置
  *
  * ---------------------------------     
  * @更新时间   
