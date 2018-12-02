@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".TestDraggedGridLayoutActivity">
+        </activity>
+        <activity android:name=".DialogActivity"/>
     </application>
 
 </manifest>

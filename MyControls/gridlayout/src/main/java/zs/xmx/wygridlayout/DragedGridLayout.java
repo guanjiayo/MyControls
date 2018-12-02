@@ -36,7 +36,7 @@ import zs.xmx.wygridlayout.utils.DensityUtils;
 
 public class DragedGridLayout extends GridLayout implements View.OnDragListener, View.OnLongClickListener, View.OnClickListener {
     private static final int   columnCount  = 4;//列数
-    private static final float maginValue   = 5;//控件的magin值
+    private static final float maginValue   = 5;//控件的margin值
     private static final float paddingValue = 5;//控件的padding值
     private boolean allowdrag;//记录当前控件是否可拖拽
     private View    dragedView;//当前点击的itemView

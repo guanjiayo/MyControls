@@ -59,7 +59,7 @@
     其他类似错误同理.
     -->
     <!--app:errorTextAppearance="@style/Theme.AppCompat"-->
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editext_til"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
             android:inputType="text"
             />
 
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <!--设置背景为null,去掉下滑线效果-->
     <Button

@@ -10,7 +10,7 @@
             toolbar.setTitle("Title");//设置主标题
             toolbar.setSubtitle("Subtitle");//设置子标题-->
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             android:background="@color/colorAccent"
             android:text="@string/controls_toolbar"
             android:textColor="@color/colorBackground"/>
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:layout_width="wrap_content"
