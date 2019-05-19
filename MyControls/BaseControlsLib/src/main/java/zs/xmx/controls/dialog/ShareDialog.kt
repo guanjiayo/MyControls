@@ -18,7 +18,7 @@ import zs.xmx.controls.dialog.base.BaseDialogVH
  */
 class ShareDialog : BaseDialog() {
 
-    override fun setLayoutId(): Int {
+    override fun setLayout(): Int {
         return R.layout.dialog_share
     }
 
@@ -29,7 +29,7 @@ class ShareDialog : BaseDialog() {
         })
     }
 
-
+    //todo newInstance(分享Bean) 服务器请求完,要分享的内容Bean类传进来
     companion object {
 
         fun newInstance(): ShareDialog {

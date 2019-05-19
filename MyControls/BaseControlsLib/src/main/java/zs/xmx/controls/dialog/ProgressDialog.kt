@@ -22,7 +22,7 @@ class ProgressDialog : BaseDialog() {
     private lateinit var loadingView: ImageView
     private lateinit var animDrawable: AnimationDrawable
 
-    override fun setLayoutId(): Int {
+    override fun setLayout(): Int {
         return R.layout.dialog_progress
     }
 

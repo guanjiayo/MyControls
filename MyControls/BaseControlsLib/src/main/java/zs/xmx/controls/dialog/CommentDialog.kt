@@ -19,7 +19,7 @@ import zs.xmx.controls.dialog.base.BaseDialogVH
  */
 class CommentDialog : BaseDialog() {
 
-    override fun setLayoutId(): Int {
+    override fun setLayout(): Int {
         return R.layout.dialog_comment
     }
 

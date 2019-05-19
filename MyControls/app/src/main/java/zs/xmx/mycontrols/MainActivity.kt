@@ -12,7 +12,7 @@ import zs.xmx.mycontrols.domain.AppInfo
 import java.util.*
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
-    private var mList: MutableList<String>? = null
+    private lateinit var mList: MutableList<String>
     private lateinit var listView: ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     }
 
     private fun initEvent() {
-        listView.adapter = ArrayAdapter(this, R.layout.activity_main, mList!!)
+        listView.adapter = ArrayAdapter(this, R.layout.activity_main, mList)
         listView.onItemClickListener = this
 
     }
@@ -32,7 +32,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     private fun initData() {
 
         mList = ArrayList()
-        mList!!.add(AppInfo("DialogFragment").toString())
+        mList.add(AppInfo("DialogFragment").toString())
+        mList.add(AppInfo("RecycleView").toString())
     }
 
     private fun initView() {
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
         when (position) {
             0 -> startActivity(Intent(this, DialogActivity::class.java))
+            1 -> startActivity(Intent(this, TestRecycleViewActivity::class.java))
             else -> {
             }
         }

@@ -7,6 +7,7 @@ import zs.xmx.controls.dialog.CommentDialog
 import zs.xmx.controls.dialog.ConfirmDialog
 import zs.xmx.controls.dialog.ProgressDialog
 import zs.xmx.controls.dialog.ShareDialog
+import zs.xmx.controls.dialog.base.DialogType
 
 /*
  * @创建者     默小铭
@@ -34,10 +35,11 @@ class DialogActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.btn_confirm -> ConfirmDialog.newInstance("1")
+            R.id.btn_confirm -> ConfirmDialog.newInstance(DialogType.LOGIN)
                     .show(supportFragmentManager)
             R.id.btn_share -> ShareDialog.newInstance()
                     .show(supportFragmentManager)
+
             R.id.btn_comment -> CommentDialog.newInstance()
                     .show(supportFragmentManager)
             R.id.btn_progress -> ProgressDialog.newInstance()

@@ -6,6 +6,7 @@ import android.widget.Toast
 import zs.xmx.controls.R
 import zs.xmx.controls.dialog.base.BaseDialog
 import zs.xmx.controls.dialog.base.BaseDialogVH
+import zs.xmx.controls.dialog.base.DialogType
 
 /*
  * @创建者     默小铭
@@ -26,15 +27,15 @@ class ConfirmDialog : BaseDialog() {
         type = bundle.getString("type")
     }
 
-    override fun setLayoutId(): Int {
+    override fun setLayout(): Int {
         return R.layout.dialog_confirm
     }
 
     override fun convertView(holder: BaseDialogVH, dialog: BaseDialog) {
         getDialog().setCanceledOnTouchOutside(false)
-        if ("1" == type) {
+        if (DialogType.LOGIN == type) {
             holder.setText(R.id.title, "提示")
-            holder.setText(R.id.message, "您已支付成功!")
+            holder.setText(R.id.message, "是否退出登录?")
         } else if ("2" == type) {
             holder.setText(R.id.title, "警告")
             holder.setText(R.id.message, "您的帐号已被冻结!")

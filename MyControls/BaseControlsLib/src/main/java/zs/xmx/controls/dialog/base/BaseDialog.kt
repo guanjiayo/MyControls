@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Bundle
 import android.view.*
 import androidx.annotation.FloatRange
-import androidx.annotation.LayoutRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.fragment.app.DialogFragment
@@ -30,8 +29,6 @@ import zs.xmx.controls.R
  */
 abstract class BaseDialog : AppCompatDialogFragment() {
 
-    @LayoutRes
-    protected var mLayoutResId: Int = 0//布局LayoutID
     private lateinit var mContext: Context//上下文
     private var mDimAmount = 0.5f//背景昏暗度
     private var mMargin = 0//左右边距
@@ -50,13 +47,24 @@ abstract class BaseDialog : AppCompatDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(DialogFragment.STYLE_NO_TITLE, R.style.BaseDialog)
-        mLayoutResId = setLayoutId()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(mLayoutResId, container, false)
+
+        val view = when {
+            setLayout() is Int -> inflater.inflate(setLayout() as Int, container, false)
+            setLayout() is View -> setLayout() as View
+            else -> throw ClassCastException("type of setLayout() must be int or View!")
+        }
         convertView(BaseDialogVH.create(view), this)
         return view
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        isCancelable = mOutCancel
+        dialog.setCanceledOnTouchOutside(mBtnCancel)
     }
 
     override fun onStart() {
@@ -98,9 +106,6 @@ abstract class BaseDialog : AppCompatDialogFragment() {
             window.attributes = params
         }
 
-        isCancelable = mOutCancel
-        dialog.setCanceledOnTouchOutside(mBtnCancel)
-
     }
 
     /**
@@ -121,7 +126,7 @@ abstract class BaseDialog : AppCompatDialogFragment() {
 
     /**
      * 设置宽高 单位是dp
-     *
+     * -2 是match_parent
      */
     fun setSize(width: Int, height: Int): BaseDialog {
         mWidth = width
@@ -176,7 +181,7 @@ abstract class BaseDialog : AppCompatDialogFragment() {
     /**
      * 设置dialog布局
      */
-    abstract fun setLayoutId(): Int
+    abstract fun setLayout(): Any
 
     /**
      * 操作dialog布局
