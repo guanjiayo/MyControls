@@ -1,1 +1,3 @@
-include ':app', ':customcontrols', ':toolbar', ':gridlayout', ':expand_edittext', ':widget_sample', ':screenadapterlayout', ':BaseControlsLib', ':recycleview'
+include ':rvgather'
+include ':baseadapter-recyclerview'
+include ':app', ':customcontrols', ':toolbar', ':gridlayout', ':expand_edittext', ':widget_sample', ':screenadapterlayout', ':BaseControlsLib'

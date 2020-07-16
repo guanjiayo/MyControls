@@ -39,7 +39,6 @@ class DialogActivity : AppCompatActivity(), View.OnClickListener {
                     .show(supportFragmentManager)
             R.id.btn_share -> ShareDialog.newInstance()
                     .show(supportFragmentManager)
-
             R.id.btn_comment -> CommentDialog.newInstance()
                     .show(supportFragmentManager)
             R.id.btn_progress -> ProgressDialog.newInstance()

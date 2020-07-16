@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BaseControlsLib/BaseControlsLib.iml" filepath="$PROJECT_DIR$/BaseControlsLib/BaseControlsLib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MyControls.iml" filepath="$PROJECT_DIR$/MyControls.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/customcontrols/customcontrols.iml" filepath="$PROJECT_DIR$/customcontrols/customcontrols.iml" />
-      <module fileurl="file://$PROJECT_DIR$/expand_edittext/expand_edittext.iml" filepath="$PROJECT_DIR$/expand_edittext/expand_edittext.iml" />
-      <module fileurl="file://$PROJECT_DIR$/gridlayout/gridlayout.iml" filepath="$PROJECT_DIR$/gridlayout/gridlayout.iml" />
-      <module fileurl="file://$PROJECT_DIR$/recycleview/recycleview.iml" filepath="$PROJECT_DIR$/recycleview/recycleview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/screenadapterlayout/screenadapterlayout.iml" filepath="$PROJECT_DIR$/screenadapterlayout/screenadapterlayout.iml" />
-      <module fileurl="file://$PROJECT_DIR$/toolbar/toolbar.iml" filepath="$PROJECT_DIR$/toolbar/toolbar.iml" />
-      <module fileurl="file://$PROJECT_DIR$/widget_sample/widget_sample.iml" filepath="$PROJECT_DIR$/widget_sample/widget_sample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BaseControlsLib/BaseControlsLib.iml" filepath="$PROJECT_DIR$/BaseControlsLib/BaseControlsLib.iml" group="MyControls/BaseControlsLib" />
+      <module fileurl="file://$PROJECT_DIR$/MyControls.iml" filepath="$PROJECT_DIR$/MyControls.iml" group="MyControls" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="MyControls/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/baseadapter-recyclerview/baseadapter-recyclerview.iml" filepath="$PROJECT_DIR$/.idea/modules/baseadapter-recyclerview/baseadapter-recyclerview.iml" group="MyControls/baseadapter-recyclerview" />
+      <module fileurl="file://$PROJECT_DIR$/customcontrols/customcontrols.iml" filepath="$PROJECT_DIR$/customcontrols/customcontrols.iml" group="MyControls/customcontrols" />
+      <module fileurl="file://$PROJECT_DIR$/expand_edittext/expand_edittext.iml" filepath="$PROJECT_DIR$/expand_edittext/expand_edittext.iml" group="MyControls/expand_edittext" />
+      <module fileurl="file://$PROJECT_DIR$/gridlayout/gridlayout.iml" filepath="$PROJECT_DIR$/gridlayout/gridlayout.iml" group="MyControls/gridlayout" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rvgather/rvgather.iml" filepath="$PROJECT_DIR$/.idea/modules/rvgather/rvgather.iml" group="MyControls/rvgather" />
+      <module fileurl="file://$PROJECT_DIR$/screenadapterlayout/screenadapterlayout.iml" filepath="$PROJECT_DIR$/screenadapterlayout/screenadapterlayout.iml" group="MyControls/screenadapterlayout" />
+      <module fileurl="file://$PROJECT_DIR$/toolbar/toolbar.iml" filepath="$PROJECT_DIR$/toolbar/toolbar.iml" group="MyControls/toolbar" />
+      <module fileurl="file://$PROJECT_DIR$/widget_sample/widget_sample.iml" filepath="$PROJECT_DIR$/widget_sample/widget_sample.iml" group="MyControls/widget_sample" />
     </modules>
   </component>
 </project>

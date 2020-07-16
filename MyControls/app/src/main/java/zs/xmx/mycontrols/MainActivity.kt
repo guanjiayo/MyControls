@@ -20,17 +20,14 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         initView()
         initData()
         initEvent()
-
     }
 
     private fun initEvent() {
         listView.adapter = ArrayAdapter(this, R.layout.activity_main, mList)
         listView.onItemClickListener = this
-
     }
 
     private fun initData() {
-
         mList = ArrayList()
         mList.add(AppInfo("DialogFragment").toString())
         mList.add(AppInfo("RecycleView").toString())
@@ -47,9 +44,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
         when (position) {
             0 -> startActivity(Intent(this, DialogActivity::class.java))
-            1 -> startActivity(Intent(this, TestRecycleViewActivity::class.java))
-            else -> {
-            }
+          //  1 -> startActivity(Intent(this, TestRecycleViewActivity::class.java))
         }
     }
 
