@@ -6,7 +6,7 @@ android {
     compileSdkVersion 30
     defaultConfig {
         applicationId "zs.xmx.mycontrols"
-        minSdkVersion 18
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -28,6 +28,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta8'
     testImplementation 'junit:junit:4.12'
-    implementation project(':BaseControlsLib')
+    implementation project(':dialoglib')
+    implementation project(':rvgather')
+    implementation project(':timer')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

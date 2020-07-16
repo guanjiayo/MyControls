@@ -1,4 +1,4 @@
-package zs.xmx.mycontrols
+package zs.xmx.controls
 
 import android.os.Bundle
 import android.view.View

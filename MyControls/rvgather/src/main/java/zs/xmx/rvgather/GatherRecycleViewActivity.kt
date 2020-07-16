@@ -10,7 +10,7 @@ import com.zhy.adapter.recyclerview.MultiItemTypeAdapter
 import zs.xmx.rvgather.adapter.MainAdapter
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class GatherRecycleViewActivity : AppCompatActivity() {
     private val mDatas: List<String> = ArrayList(
         listOf(
             "RecyclerView",
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_gather_recycleview)
         val mRecyclerView = findViewById<RecyclerView>(R.id.id_listview_list)
         mRecyclerView.layoutManager = LinearLayoutManager(this)
         val mainAdapter = MainAdapter(this, R.layout.item_list, mDatas)
@@ -37,12 +37,12 @@ class MainActivity : AppCompatActivity() {
             ) {
                 var intent: Intent? = null
                 when (position) {
-                    0 -> intent = Intent(this@MainActivity, RecyclerViewActivity::class.java)
-                    1 -> intent = Intent(this@MainActivity, ChatRvActivity::class.java)
-                    2 -> intent = Intent(this@MainActivity, GridViewTitleActivity::class.java)
-                    3 -> intent = Intent(this@MainActivity, RadioSelectItemActivity::class.java)
-                    4 -> intent = Intent(this@MainActivity, CheckItemActivity::class.java)
-                    5 -> intent = Intent(this@MainActivity, CheckAndSelectItemActivity::class.java)
+                    0 -> intent = Intent(this@GatherRecycleViewActivity, RecyclerViewActivity::class.java)
+                    1 -> intent = Intent(this@GatherRecycleViewActivity, ChatRvActivity::class.java)
+                    2 -> intent = Intent(this@GatherRecycleViewActivity, GridViewTitleActivity::class.java)
+                    3 -> intent = Intent(this@GatherRecycleViewActivity, RadioSelectItemActivity::class.java)
+                    4 -> intent = Intent(this@GatherRecycleViewActivity, CheckItemActivity::class.java)
+                    5 -> intent = Intent(this@GatherRecycleViewActivity, CheckAndSelectItemActivity::class.java)
                 }
                 intent?.let { startActivity(it) }
             }

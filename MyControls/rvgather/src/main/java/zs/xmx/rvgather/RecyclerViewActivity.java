@@ -150,15 +150,15 @@ public class RecyclerViewActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         switch (id)
         {
-            case R.id.action_linear:
-                mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-                break;
-            case R.id.action_grid:
-                mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-                break;
-            case R.id.action_staggered:
-                mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-                break;
+//            case R.id.action_linear:
+//                mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//                break;
+//            case R.id.action_grid:
+//                mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+//                break;
+//            case R.id.action_staggered:
+//                mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+//                break;
         }
         mRecyclerView.setAdapter(mLoadMoreWrapper);
 

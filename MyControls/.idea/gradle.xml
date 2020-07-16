@@ -10,14 +10,16 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/BaseControlsLib" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/baseadapter-expand_edittext" />
             <option value="$PROJECT_DIR$/baseadapter-recyclerview" />
             <option value="$PROJECT_DIR$/customcontrols" />
+            <option value="$PROJECT_DIR$/dialoglib" />
             <option value="$PROJECT_DIR$/expand_edittext" />
             <option value="$PROJECT_DIR$/gridlayout" />
             <option value="$PROJECT_DIR$/rvgather" />
             <option value="$PROJECT_DIR$/screenadapterlayout" />
+            <option value="$PROJECT_DIR$/timer" />
             <option value="$PROJECT_DIR$/toolbar" />
             <option value="$PROJECT_DIR$/widget_sample" />
           </set>

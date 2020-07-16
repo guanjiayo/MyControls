@@ -8,7 +8,9 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import zs.xmx.controls.DialogActivity
 import zs.xmx.mycontrols.domain.AppInfo
+import zs.xmx.rvgather.GatherRecycleViewActivity
 import java.util.*
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
@@ -44,7 +46,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
         when (position) {
             0 -> startActivity(Intent(this, DialogActivity::class.java))
-          //  1 -> startActivity(Intent(this, TestRecycleViewActivity::class.java))
+            1 -> startActivity(Intent(this, GatherRecycleViewActivity::class.java))
         }
     }
 
