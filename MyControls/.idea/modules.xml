@@ -13,7 +13,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/rvgather/rvgather.iml" filepath="$PROJECT_DIR$/.idea/modules/rvgather/rvgather.iml" group="MyControls/rvgather" />
       <module fileurl="file://$PROJECT_DIR$/screenadapterlayout/screenadapterlayout.iml" filepath="$PROJECT_DIR$/screenadapterlayout/screenadapterlayout.iml" group="MyControls/screenadapterlayout" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/timer/timer.iml" filepath="$PROJECT_DIR$/.idea/modules/timer/timer.iml" group="MyControls/timer" />
-      <module fileurl="file://$PROJECT_DIR$/toolbar/toolbar.iml" filepath="$PROJECT_DIR$/toolbar/toolbar.iml" group="MyControls/toolbar" />
       <module fileurl="file://$PROJECT_DIR$/widget_sample/widget_sample.iml" filepath="$PROJECT_DIR$/widget_sample/widget_sample.iml" group="MyControls/widget_sample" />
     </modules>
   </component>

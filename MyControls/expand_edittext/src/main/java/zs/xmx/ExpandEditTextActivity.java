@@ -1,8 +1,11 @@
 package zs.xmx;
 
 import android.os.Bundle;
+
 import com.google.android.material.textfield.TextInputLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 import android.view.WindowManager;
 
@@ -42,7 +45,7 @@ import zs.xmx.weight.PasswordEditText;
  * @新增内容
  *
  */
-public class MainActivity extends AppCompatActivity {
+public class ExpandEditTextActivity extends AppCompatActivity {
     private ClearEditText    clearEditText;
     private PasswordEditText passwordEditText;
     private ClearEditText    passwordEditText_til;
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //软键盘适应屏幕
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_expand_edittext);
 
         initView();
 

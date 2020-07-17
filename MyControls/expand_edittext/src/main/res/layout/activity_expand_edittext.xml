@@ -8,7 +8,7 @@
     android:background="#aea3a3"
     android:orientation="vertical"
     android:padding="5dp"
-    tools:context="zs.xmx.MainActivity">
+    tools:context="zs.xmx.ExpandEditTextActivity">
 
 
     <!--设置android:drawableLeft/Right属性后-->

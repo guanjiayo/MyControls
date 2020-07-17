@@ -8,9 +8,11 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import zs.xmx.ExpandEditTextActivity
 import zs.xmx.controls.DialogActivity
-import zs.xmx.mycontrols.domain.AppInfo
 import zs.xmx.rvgather.GatherRecycleViewActivity
+import zs.xmx.timer.TimerActivity
+import zs.xmx.wygridlayout.DragedGridLayoutActivity
 import java.util.*
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
@@ -31,8 +33,11 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     private fun initData() {
         mList = ArrayList()
-        mList.add(AppInfo("DialogFragment").toString())
-        mList.add(AppInfo("RecycleView").toString())
+        mList.add("DialogFragment")
+        mList.add("RecycleView")
+        mList.add("ExpandEditText")
+        mList.add("DragGridLayout")
+        mList.add("Timer")
     }
 
     private fun initView() {
@@ -40,13 +45,15 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         setContentView(listView, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup
                 .LayoutParams.MATCH_PARENT))
 
-
     }
 
     override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
         when (position) {
             0 -> startActivity(Intent(this, DialogActivity::class.java))
             1 -> startActivity(Intent(this, GatherRecycleViewActivity::class.java))
+            2 -> startActivity(Intent(this, ExpandEditTextActivity::class.java))
+            3 -> startActivity(Intent(this, DragedGridLayoutActivity::class.java))
+            4 -> startActivity(Intent(this, TimerActivity::class.java))
         }
     }
 

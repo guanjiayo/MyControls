@@ -1,13 +1,15 @@
 package zs.xmx.wygridlayout;
 
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class DragedGridLayoutActivity extends AppCompatActivity {
 
     private List<String>     mTitles;
     private DragedGridLayout mDragedGridLayout;
@@ -19,11 +21,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         initData();
         initView();
-
     }
 
     private void initView() {
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_draged_grid);
         mDragedGridLayout = (DragedGridLayout) findViewById(R.id.dragedgridlayout);
 
         mDragedGridLayout.setAllowDrag(true);
