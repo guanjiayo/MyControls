@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dialoglib/dialoglib.iml" filepath="$PROJECT_DIR$/.idea/modules/dialoglib/dialoglib.iml" group="MyControls/dialoglib" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/expand_edittext/expand_edittext.iml" filepath="$PROJECT_DIR$/.idea/modules/expand_edittext/expand_edittext.iml" group="MyControls/expand_edittext" />
       <module fileurl="file://$PROJECT_DIR$/gridlayout/gridlayout.iml" filepath="$PROJECT_DIR$/gridlayout/gridlayout.iml" group="MyControls/gridlayout" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/progressbar/progressbar.iml" filepath="$PROJECT_DIR$/.idea/modules/progressbar/progressbar.iml" group="MyControls/progressbar" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/rvgather/rvgather.iml" filepath="$PROJECT_DIR$/.idea/modules/rvgather/rvgather.iml" group="MyControls/rvgather" />
       <module fileurl="file://$PROJECT_DIR$/screenadapterlayout/screenadapterlayout.iml" filepath="$PROJECT_DIR$/screenadapterlayout/screenadapterlayout.iml" group="MyControls/screenadapterlayout" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/timer/timer.iml" filepath="$PROJECT_DIR$/.idea/modules/timer/timer.iml" group="MyControls/timer" />

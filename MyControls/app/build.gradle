@@ -34,5 +34,5 @@ dependencies {
     implementation project(':timer')
     implementation project(':expand_edittext')
     implementation project(':gridlayout')
-
+    implementation project(':progressbar')
 }

@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="zs.xmx.progressbar">
+
+    <application>
+        <activity android:name=".ProgressBarActivity" />
+    </application>
+</manifest>

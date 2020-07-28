@@ -10,6 +10,7 @@ import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import zs.xmx.ExpandEditTextActivity
 import zs.xmx.controls.DialogActivity
+import zs.xmx.progressbar.ProgressBarActivity
 import zs.xmx.rvgather.GatherRecycleViewActivity
 import zs.xmx.timer.TimerActivity
 import zs.xmx.wygridlayout.DragedGridLayoutActivity
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         mList.add("ExpandEditText")
         mList.add("DragGridLayout")
         mList.add("Timer")
+        mList.add("ProgressBar")
     }
 
     private fun initView() {
@@ -54,6 +56,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             2 -> startActivity(Intent(this, ExpandEditTextActivity::class.java))
             3 -> startActivity(Intent(this, DragedGridLayoutActivity::class.java))
             4 -> startActivity(Intent(this, TimerActivity::class.java))
+            5 -> startActivity(Intent(this, ProgressBarActivity::class.java))
         }
     }
 

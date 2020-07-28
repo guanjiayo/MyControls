@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  reference：参考某一资源ID
+  color：颜色值
+  boolean：布尔值
+  dimension：尺寸值
+  float：浮点值
+  integer：整型值
+  string：字符串
+  fraction：百分数
+  enum：枚举值 多值选一
+  flag：位或运算，多值组合，用“|”分隔 -->
+<resources>
+    <!--水平进度条样式-->
+    <declare-styleable name="HorizontalProgressbar">
+        <attr name="progress_unreach_color" format="color" />
+        <attr name="progress_unreach_height" format="dimension" />
+        <attr name="progress_reach_color" format="color" />
+        <attr name="progress_reach_height" format="dimension" />
+        <attr name="progress_text_color" format="color" />
+        <attr name="progress_text_size" format="dimension" />
+        <attr name="progress_text_offset" format="dimension" />
+    </declare-styleable>
+
+    <!--圆形进度条样式-->
+    <declare-styleable name="RoundProgressBar">
+        <attr name="radius" format="dimension" />
+    </declare-styleable>
+
+
+</resources>
