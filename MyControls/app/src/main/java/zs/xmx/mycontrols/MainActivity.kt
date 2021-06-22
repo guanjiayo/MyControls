@@ -10,6 +10,7 @@ import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import zs.xmx.ExpandEditTextActivity
 import zs.xmx.controls.DialogActivity
+import zs.xmx.mycontrols.shape_shadow.ShapeDrawableActivity
 import zs.xmx.progressbar.ProgressBarActivity
 import zs.xmx.rvgather.GatherRecycleViewActivity
 import zs.xmx.timer.TimerActivity
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         mList.add("DragGridLayout")
         mList.add("Timer")
         mList.add("ProgressBar")
+        mList.add("ShapeDrawable")
     }
 
     private fun initView() {
@@ -57,6 +59,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             3 -> startActivity(Intent(this, DragedGridLayoutActivity::class.java))
             4 -> startActivity(Intent(this, TimerActivity::class.java))
             5 -> startActivity(Intent(this, ProgressBarActivity::class.java))
+            6 -> startActivity(Intent(this, ShapeDrawableActivity::class.java))
         }
     }
 
