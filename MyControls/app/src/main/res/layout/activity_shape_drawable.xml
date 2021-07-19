@@ -57,6 +57,13 @@
             android:padding="@dimen/dp_5"
             android:text="测试文本五" />
 
+        <Button
+            android:id="@+id/btn_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="更多" />
+
     </LinearLayout>
 
 

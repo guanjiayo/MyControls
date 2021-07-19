@@ -1,11 +1,13 @@
 package zs.xmx.mycontrols.shape_shadow
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.shape.*
@@ -29,6 +31,10 @@ class ShapeDrawableActivity : AppCompatActivity() {
         val tvTest3 = findViewById<TextView>(R.id.test3)
         val tvTest4 = findViewById<TextView>(R.id.test4)
         val tvTest5 = findViewById<TextView>(R.id.test5)
+        val mBtnMore = findViewById<Button>(R.id.btn_more)
+        mBtnMore.setOnClickListener {
+            startActivity(Intent(this,MaterialShapeActivity::class.java))
+        }
 
         simpleUse(tvTest1)
         edge(tvTest2)

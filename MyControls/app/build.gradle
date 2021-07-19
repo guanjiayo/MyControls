@@ -18,6 +18,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -36,7 +39,5 @@ dependencies {
     implementation project(':gridlayout')
     implementation project(':progressbar')
     implementation 'com.google.android.material:material:1.2.1'
-
-    //implementation 'com.github.lihangleo2:ShadowLayout:2.1.7'
 
 }
