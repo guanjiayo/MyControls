@@ -10,6 +10,7 @@ import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import zs.xmx.ExpandEditTextActivity
 import zs.xmx.controls.DialogActivity
+import zs.xmx.mycontrols.expand_textview.ExpandTextViewActivity
 import zs.xmx.mycontrols.shape_shadow.ShapeDrawableActivity
 import zs.xmx.progressbar.ProgressBarActivity
 import zs.xmx.rvgather.GatherRecycleViewActivity
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         mList.add("Timer")
         mList.add("ProgressBar")
         mList.add("ShapeDrawable")
+        mList.add("ExpandTextView")
     }
 
     private fun initView() {
@@ -60,6 +62,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             4 -> startActivity(Intent(this, TimerActivity::class.java))
             5 -> startActivity(Intent(this, ProgressBarActivity::class.java))
             6 -> startActivity(Intent(this, ShapeDrawableActivity::class.java))
+            7 -> startActivity(Intent(this, ExpandTextViewActivity::class.java))
         }
     }
 
