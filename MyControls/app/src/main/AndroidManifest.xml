@@ -10,10 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".bottom_sheet.BottomSheetActivity"
+            android:exported="false" />
+        <activity
             android:name=".expand_textview.ExpandTextViewActivity"
             android:exported="true" />
         <activity android:name=".shape_shadow.MaterialShapeActivity" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

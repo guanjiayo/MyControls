@@ -25,28 +25,38 @@
 
     </declare-styleable>
 
-    <declare-styleable name="ExpandTextView">
-        <!--阴影的圆角大小-->
+    <!--  三段式BottomSheet  start  -->
+    <declare-styleable name="BottomSheetBehavior_Layout">
+        <attr name="behavior_peekHeight" format="dimension" />
+        <attr name="behavior_hideAble" format="boolean" />
+        <attr name="behavior_skipCollapse" format="dimension" />
+        <attr name="behavior_middleHeight" format="dimension" />
+        <attr name="behavior_fitToContents" format="boolean" />
+    </declare-styleable>
+    <!--    三段式BottomSheet  end -->
+
+    <!--<declare-styleable name="ExpandTextView">
+        &lt;!&ndash;阴影的圆角大小&ndash;&gt;
         <attr name="hl_cornerRadius" format="dimension" />
-        <!--阴影的扩散范围(也可以理解为扩散程度)-->
+        &lt;!&ndash;阴影的扩散范围(也可以理解为扩散程度)&ndash;&gt;
         <attr name="hl_shadowLimit" format="dimension" />
         <attr name="hl_shadowColor" format="color" />
         <attr name="hl_shadowBackColor" format="color" />
-        <!--x轴的偏移量-->
+        &lt;!&ndash;x轴的偏移量&ndash;&gt;
         <attr name="hl_shadowOffsetX" format="dimension" />
-        <!--y轴的偏移量-->
+        &lt;!&ndash;y轴的偏移量&ndash;&gt;
         <attr name="hl_shadowOffsetY" format="dimension" />
-        <!--左边是否显示阴影-->
+        &lt;!&ndash;左边是否显示阴影&ndash;&gt;
         <attr name="hl_shadowHiddenLeft" format="boolean" />
-        <!--右边是否显示阴影-->
+        &lt;!&ndash;右边是否显示阴影&ndash;&gt;
         <attr name="hl_shadowHiddenRight" format="boolean" />
-        <!--上边是否显示阴影-->
+        &lt;!&ndash;上边是否显示阴影&ndash;&gt;
         <attr name="hl_shadowHiddenTop" format="boolean" />
-        <!--下面是否显示阴影-->
+        &lt;!&ndash;下面是否显示阴影&ndash;&gt;
         <attr name="hl_shadowHiddenBottom" format="boolean" />
-        <!--控件区域是否对称，默认是对称。不对称的话，那么控件区域随着阴影区域走-->
+        &lt;!&ndash;控件区域是否对称，默认是对称。不对称的话，那么控件区域随着阴影区域走&ndash;&gt;
         <attr name="hl_shadowSymmetry" format="boolean" />
 
-    </declare-styleable>
+    </declare-styleable>-->
 
 </resources>

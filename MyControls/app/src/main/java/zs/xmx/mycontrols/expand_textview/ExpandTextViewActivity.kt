@@ -2,6 +2,7 @@ package zs.xmx.mycontrols.expand_textview
 
 import android.content.Context
 import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.*
@@ -9,6 +10,7 @@ import android.text.style.AlignmentSpan
 import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import zs.xmx.mycontrols.R
 
 /**
@@ -33,6 +35,7 @@ class ExpandTextViewActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var tv: TextView
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_expand_text_view)
@@ -65,8 +68,14 @@ class ExpandTextViewActivity : AppCompatActivity(), View.OnClickListener {
         int ellipsizedWidth：开始省略的位置
 
          */
-        val staticLayout =
-            StaticLayout(content, paint, width, Layout.Alignment.ALIGN_NORMAL, 1f, 0f, false)
+//        val staticLayout =
+//            StaticLayout(content, paint, width, Layout.Alignment.ALIGN_NORMAL, 1f, 0f, false)
+
+        val staticLayout = StaticLayout.Builder.obtain(content, 0, content.length, paint, width)
+            .setAlignment(Layout.Alignment.ALIGN_NORMAL)
+            .setLineSpacing(1f, 0f)
+            .setIncludePad(false)
+            .build()
         //判断content是行数是否超过最大限制行数3行
         if (staticLayout.lineCount > maxLine) {
             //定义展开后的文本内容
