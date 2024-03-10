@@ -1,14 +1,16 @@
-apply plugin: 'com.android.application'
+plugins {
+    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.jetbrainsKotlinAndroid)
+}
 
 android {
-    compileSdkVersion 28
-
-
+    namespace 'zs.xmx.screenadapterlayout'
+    compileSdk 28
 
     defaultConfig {
         applicationId "zs.xmx.screenadapterlayout"
-        minSdkVersion 18
-        targetSdkVersion 28
+        minSdk 18
+        targetSdk 28
         versionCode 1
         versionName "1.0"
 
@@ -23,14 +25,23 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    implementation(libs.androidx.core.ktx)
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    implementation libs.androidx.constraintlayout
 }

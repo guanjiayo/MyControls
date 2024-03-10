@@ -32,7 +32,7 @@ class ConfirmDialog : BaseDialog() {
     }
 
     override fun convertView(holder: BaseDialogVH, dialog: BaseDialog) {
-        getDialog().setCanceledOnTouchOutside(false)
+        getDialog()?.setCanceledOnTouchOutside(false)
         if (DialogType.LOGIN == type) {
             holder.setText(R.id.title, "提示")
             holder.setText(R.id.message, "是否退出登录?")

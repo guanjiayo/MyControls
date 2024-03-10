@@ -2,7 +2,11 @@ package zs.xmx.controls.dialog.base
 
 import android.content.Context
 import android.os.Bundle
-import android.view.*
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.annotation.FloatRange
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatDialogFragment
@@ -39,9 +43,9 @@ abstract class BaseDialog : AppCompatDialogFragment() {
     private var mHeight: Int = 0
     private var mGravity = Gravity.CENTER//dialog 显示位置(默认居中显示)
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
-        mContext = context!!
+        mContext = context
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,7 +68,7 @@ abstract class BaseDialog : AppCompatDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         isCancelable = mOutCancel
-        dialog.setCanceledOnTouchOutside(mBtnCancel)
+        dialog?.setCanceledOnTouchOutside(mBtnCancel)
     }
 
     override fun onStart() {
@@ -74,7 +78,7 @@ abstract class BaseDialog : AppCompatDialogFragment() {
 
 
     private fun initParams() {
-        val window = dialog.window
+        val window = dialog?.window
         if (window != null) {
             val params = window.attributes
             params.dimAmount = mDimAmount

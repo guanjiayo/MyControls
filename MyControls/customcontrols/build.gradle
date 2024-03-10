@@ -1,13 +1,17 @@
-apply plugin: 'com.android.application'
+plugins {
+    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.jetbrainsKotlinAndroid)
+}
 
 android {
-    compileSdkVersion 28
+    namespace 'zs.xmx.customcontrols'
+    compileSdk 28
 
 
     defaultConfig {
         applicationId "zs.xmx.customcontrols"
-        minSdkVersion 18
-        targetSdkVersion 28
+        minSdk 18
+        targetSdk 28
         versionCode 1
         versionName "1.0"
 
@@ -20,14 +24,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
-    testImplementation 'junit:junit:4.12'
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+
+    implementation(libs.androidx.core.ktx)
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    implementation libs.androidx.constraintlayout
 }

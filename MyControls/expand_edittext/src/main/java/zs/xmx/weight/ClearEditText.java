@@ -68,7 +68,7 @@ public class ClearEditText extends DrawableEditText {
     }
 
     public ClearEditText(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.editTextStyle);
+        this(context, attrs, androidx.appcompat.R.attr.editTextStyle);
 
     }
 

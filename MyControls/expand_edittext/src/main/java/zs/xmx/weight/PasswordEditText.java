@@ -51,7 +51,7 @@ public class PasswordEditText extends ClearEditText {
     }
 
     public PasswordEditText(final Context context, final AttributeSet attrs) {
-        this(context, attrs, R.attr.editTextStyle);
+        this(context, attrs, androidx.appcompat.R.attr.editTextStyle);
     }
 
     public PasswordEditText(final Context context, final AttributeSet attrs, final int defStyleAttr) {

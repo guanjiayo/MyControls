@@ -32,6 +32,7 @@ import java.util.Map;
 
 import zs.xmx.mycontrols.R;
 
+
 /*
  * 仿高德地图三段式首页 CoordinatorLayout.Behavior方式
  * https://juejin.cn/post/6986893965945487396#heading-0
@@ -262,6 +263,7 @@ public class DrawerBottomSheetBehavior<V extends View> extends CoordinatorLayout
 
     }
 
+    @SuppressLint("ResourceType")
     @Override
     public boolean onLayoutChild(CoordinatorLayout parent, V child, int layoutDirection) {
         if (ViewCompat.getFitsSystemWindows(parent) && !ViewCompat.getFitsSystemWindows(child)) {
@@ -273,7 +275,8 @@ public class DrawerBottomSheetBehavior<V extends View> extends CoordinatorLayout
         this.parentHeight = parent.getHeight();
         if (this.peekHeightAuto) {
             if (this.peekHeightMin == 0) {
-                this.peekHeightMin = parent.getResources().getDimensionPixelSize(R.dimen.design_bottom_sheet_peek_height_min);
+               // this.peekHeightMin = parent.getResources().getDimensionPixelSize(R.dimen.design_bottom_sheet_peek_height_min);
+                this.peekHeightMin = parent.getResources().getDimensionPixelSize(com.google.android.material.R.id.design_bottom_sheet);
             }
 
             this.lastPeekHeight = Math.max(this.peekHeightMin, this.parentHeight - parent.getWidth() * 9 / 16);
