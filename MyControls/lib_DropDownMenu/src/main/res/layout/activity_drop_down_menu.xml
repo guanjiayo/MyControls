@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DropDownMenuActivity">
+
+    <zs.xmx.lib_ddmenu.DropDownMenu
+        android:id="@+id/dropDownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:ddMaskColor="@color/mask_color"
+        app:ddMenuBackgroundColor="@color/white"
+        app:ddMenuSelectedIcon="@mipmap/drop_down_selected_icon"
+        app:ddMenuTextSelectedColor="@color/drop_down_selected"
+        app:ddMenuTextSize="13sp"
+        app:ddMenuTextUnselectedColor="@color/drop_down_unselected"
+        app:ddMenuUnselectedIcon="@mipmap/drop_down_unselected_icon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

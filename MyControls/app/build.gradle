@@ -51,6 +51,7 @@ dependencies {
     implementation project(':expand_edittext')
     implementation project(':gridlayout')
     implementation project(':progressbar')
+    implementation project(':lib_DropDownMenu')
 
     //ExpandTextView
     implementation 'com.github.MZCretin:ExpandableTextView:v1.6.1-x'

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  下落筛选菜单控件  start-->
+    <declare-styleable name="DropDownMenu">
+        <attr name="ddMenuBackgroundColor" format="color" />
+        <attr name="ddMenuTextSize" format="dimension" />
+        <attr name="ddMenuTextUnselectedColor" format="color" />
+        <attr name="ddMenuTextSelectedColor" format="color" />
+        <attr name="ddMenuSelectedIcon" format="reference" />
+        <attr name="ddMenuUnselectedIcon" format="reference" />
+        <attr name="ddMaskColor" format="color" />
+    </declare-styleable>
+    <!--  下落筛选菜单控件  end-->
+
+</resources>

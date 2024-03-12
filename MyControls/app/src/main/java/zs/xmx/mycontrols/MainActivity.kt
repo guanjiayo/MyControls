@@ -10,6 +10,7 @@ import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import zs.xmx.ExpandEditTextActivity
 import zs.xmx.controls.DialogActivity
+import zs.xmx.lib_ddmenu.DropDownMenuActivity
 import zs.xmx.mycontrols.bottom_sheet.BottomSheetActivity
 import zs.xmx.mycontrols.expand_textview.ExpandTextViewActivity
 import zs.xmx.mycontrols.shape_shadow.ShapeDrawableActivity
@@ -45,6 +46,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         mList.add("ShapeDrawable")
         mList.add("ExpandTextView")
         mList.add("BottomSheet 实现三段式折叠控件")
+        mList.add("DropDownMenu 多条件筛选菜单")
     }
 
     private fun initView() {
@@ -69,6 +71,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             6 -> startActivity(Intent(this, ShapeDrawableActivity::class.java))
             7 -> startActivity(Intent(this, ExpandTextViewActivity::class.java))
             8 -> startActivity(Intent(this, BottomSheetActivity::class.java))
+            9 -> startActivity(Intent(this, DropDownMenuActivity::class.java))
         }
     }
 
