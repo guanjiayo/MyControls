@@ -38,9 +38,11 @@ class BaseDialogVH private constructor(private val convertView: View) {
      * @param viewId
      * @param text
      */
-    fun setText(viewId: Int, text: String) {
+    fun setText(viewId: Int, text: String?) {
         val textView = getView<TextView>(viewId)
-        textView.text = text
+        text?.let {
+            textView.text = text
+        }
     }
 
     /**
