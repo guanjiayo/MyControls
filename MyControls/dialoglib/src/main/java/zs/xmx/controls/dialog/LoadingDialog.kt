@@ -12,18 +12,16 @@ import zs.xmx.controls.dialog.base.BaseDialogVH
 /*
  * @创建者     默小铭
  * @博客       http://blog.csdn.net/u012792686
- * @本类描述	   分享Dialog
+ * @本类描述	   LoadingDialog
  * @内容说明
  *
- *
- * todo 这里用作参考,实际项目按需开发即可
  */
-class ProgressDialog : BaseDialog() {
+class LoadingDialog : BaseDialog() {
     private lateinit var loadingView: ImageView
     private lateinit var animDrawable: AnimationDrawable
 
     override fun setLayout(): Int {
-        return R.layout.dialog_progress
+        return R.layout.dialog_loading
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,12 +38,12 @@ class ProgressDialog : BaseDialog() {
 
     companion object {
 
-        fun newInstance(): ProgressDialog {
-            val dialog = ProgressDialog()
+        fun newInstance(): LoadingDialog {
+            val dialog = LoadingDialog()
             dialog.setSize(120, 120)
             dialog.setDimAmount(0.5f)//背景暗度
             dialog.setGravity(Gravity.CENTER)//显示位置
-            dialog.setAnimStyle(R.style.ConfirmDialogAnim)//动画样式
+            dialog.setAnimStyle(R.style.DialogScaleAnim)//动画样式
             return dialog
         }
 

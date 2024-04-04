@@ -8,14 +8,14 @@
         <item name="android:windowIsFloating">true</item>
     </style>
 
-    <!--ShareDialog进入退出动画-->
-    <style name="ShareDialogAnim" parent="android:Animation">
+    <!--底部进入退出动画-->
+    <style name="DialogBottomAnim" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/dialog_bottom_in</item>
         <item name="android:windowExitAnimation">@anim/dialog_bottom_out</item>
     </style>
 
-    <!--ConfirmDialog进入退出动画-->
-    <style name="ConfirmDialogAnim" parent="android:Animation">
+    <!--形状变化进入退出动画-->
+    <style name="DialogScaleAnim" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/dialog_scale_in</item>
         <item name="android:windowExitAnimation">@anim/dialog_scale_out</item>
     </style>

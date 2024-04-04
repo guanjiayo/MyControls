@@ -5,7 +5,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import zs.xmx.controls.dialog.CommentDialog
 import zs.xmx.controls.dialog.ConfirmDialog
-import zs.xmx.controls.dialog.ProgressDialog
+import zs.xmx.controls.dialog.LoadingDialog
 import zs.xmx.controls.dialog.ShareDialog
 import zs.xmx.controls.dialog.base.DialogType
 
@@ -41,7 +41,7 @@ class DialogActivity : AppCompatActivity(), View.OnClickListener {
                     .show(supportFragmentManager)
             R.id.btn_comment -> CommentDialog.newInstance()
                     .show(supportFragmentManager)
-            R.id.btn_progress -> ProgressDialog.newInstance()
+            R.id.btn_progress -> LoadingDialog.newInstance()
                     .show(supportFragmentManager)
         }
     }

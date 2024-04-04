@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.annotation.FloatRange
 import androidx.annotation.StyleRes
-import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import zs.xmx.controls.R
 
 
@@ -30,18 +30,21 @@ import zs.xmx.controls.R
  * 2. 重写 onCreateView()
  * 一般用于创建复杂内容弹窗或全屏展示效果的场景，UI 复杂，功能复杂，一般有网络请求等异步操作。
  *
+ *  ps: 仅适用于Dialog布局宽高固定时使用
  */
-abstract class BaseDialog : AppCompatDialogFragment() {
+abstract class BaseDialog : DialogFragment() {
 
     private lateinit var mContext: Context//上下文
     private var mDimAmount = 0.5f//背景昏暗度
     private var mMargin = 0//左右边距
     private var mAnimStyle = 0//进入退出动画
-    private var mOutCancel = true//点击屏幕和返回键取消
-    private var mBtnCancel = true//点击屏幕不取消,但是返回键取消
+    private var mInvisibleDismiss = true//当页面不可见时,dismiss
     private var mWidth: Int = 0
     private var mHeight: Int = 0
     private var mGravity = Gravity.CENTER//dialog 显示位置(默认居中显示)
+
+    private var isSetOnTouchOutside = false//通知在getDialog()不为空时设置CancelOnTouchOutside属性
+    private var mIsCancel = true//setCancelOnTouchOutside(isCancel)
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -50,10 +53,12 @@ abstract class BaseDialog : AppCompatDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.BaseDialog)
+        setStyle(STYLE_NO_TITLE, R.style.BaseDialog)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
 
         val view = when {
             setLayout() is Int -> inflater.inflate(setLayout() as Int, container, false)
@@ -65,17 +70,17 @@ abstract class BaseDialog : AppCompatDialogFragment() {
 
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        isCancelable = mOutCancel
-        dialog?.setCanceledOnTouchOutside(mBtnCancel)
-    }
-
     override fun onStart() {
         super.onStart()
         initParams()
     }
 
+    override fun onPause() {
+        super.onPause()
+        if (mInvisibleDismiss) {
+            dismiss()
+        }
+    }
 
     private fun initParams() {
         val window = dialog?.window
@@ -86,7 +91,7 @@ abstract class BaseDialog : AppCompatDialogFragment() {
             //设置dialog显示位置
             params.gravity = mGravity
 
-            /**由于DialogFragment 默认会让布局自带边距,所以我们如下设置Dialog狂傲**/
+            /**由于DialogFragment 默认会让布局自带边距,所以我们如下设置Dialog宽高**/
             //设置dialog宽度
             if (mWidth == 0) {
                 params.width = getScreenWidth(mContext) - 2 * dp2px(mContext, mMargin.toFloat())
@@ -110,6 +115,10 @@ abstract class BaseDialog : AppCompatDialogFragment() {
             window.attributes = params
         }
 
+        if (isSetOnTouchOutside) {
+            dialog?.setCanceledOnTouchOutside(mIsCancel)
+        }
+
     }
 
     /**
@@ -130,13 +139,14 @@ abstract class BaseDialog : AppCompatDialogFragment() {
 
     /**
      * 设置宽高 单位是dp
-     * -2 是match_parent
+     * width 0 , height设置 -2 是 match_parent
      */
     fun setSize(width: Int, height: Int): BaseDialog {
         mWidth = width
         mHeight = height
         return this
     }
+
 
     /**
      * 设置左右margin比例
@@ -154,33 +164,98 @@ abstract class BaseDialog : AppCompatDialogFragment() {
         return this
     }
 
+    /*
+        以下两个方法根据不同组合效果不一样
+
+        dialog.setCancelable(true);
+        #: 2种方式都可以使得对话框消失
+
+        dialog.setCancelable(false);
+        #: 2种方式都不能使得对话框消失
+
+        dialog.setCanceledOnTouchOutside(true);
+        #: 2种方式都可以使得对话框消失
+
+        dialog.setCanceledOnTouchOutside(false);
+        #: 只有手机返回按键可使得对话框消失
+
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+        #: 2种方式都不能使得对话框消失
+
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(true);
+        #: 2种方式都可以使得对话框消失
+
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(false);
+        #: 2种方式都可以不能使得对话框消失（和上面一种情况对比，顺序不同，产生的结果也是不同的，注意！）
+
+        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(true);
+        #: 2种方式都可以使得对话框消失
+
+        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(false);
+        #: 只有手机返回按键可使得对话框消失
+
+     */
+
     /**
-     * true: dialog弹出后,点击屏幕和物理返回键,dialog消失
-     * false: dialog弹出后,点击屏幕和物理返回键,dialog不消失
+     * true: dialog弹出后,点击物理返回键,点击屏幕 dialog消失
+     * false: dialog弹出后,点击物理返回键,点击屏幕 dialog不消失
      */
     fun setOutCancel(outCancel: Boolean): BaseDialog {
-        mOutCancel = outCancel
+        isCancelable = outCancel
         return this
     }
 
     /**
-     * true: 点击屏幕，dialog消失；点击返回键dialog消失
-     * false: 点击屏幕，dialog不消失；点击返回键dialog消失
+     * true: 点击屏幕，点击物理返回键 dialog消失；
+     * false: 点击屏幕，dialog不消失, 点击物理返回键, dialog消失
+     *
+     * ps: 需要在onViewCreated生命周期调用,否则dialog为null
      */
     fun setCanceledOnTouchOutside(btnCancel: Boolean): BaseDialog {
-        mBtnCancel = btnCancel
+        isSetOnTouchOutside = true
+        mIsCancel = btnCancel
         return this
     }
+
+    /**
+     * true: 页面不可见时隐藏Dialog
+     * false: 页面不可见时,不隐藏Dialog
+     */
+    fun setInvisibleDismiss(dismiss: Boolean): BaseDialog {
+        mInvisibleDismiss = dismiss
+        return this
+    }
+
+    /**
+     * Dialog 是否可见
+     */
+    val isShowing: Boolean
+        get() = dialog?.isShowing == true
 
 
     /**
      * 显示Dialog
      */
     fun show(manager: FragmentManager): BaseDialog {
-        super.show(manager, System.currentTimeMillis().toString())
+        val tag = System.currentTimeMillis().toString()
+        val fragment = manager.findFragmentByTag(tag)
+        if (fragment != null) {
+            val fragmentTransaction: FragmentTransaction = manager.beginTransaction()
+            fragmentTransaction.remove(fragment)
+            fragmentTransaction.commitAllowingStateLoss()
+        }
+        try {
+            super.show(manager, tag)
+        } catch (e: IllegalAccessException) {
+            e.printStackTrace()
+        }
         return this
     }
-
 
     /**
      * 设置dialog布局
@@ -208,6 +283,4 @@ abstract class BaseDialog : AppCompatDialogFragment() {
         val scale = context.resources.displayMetrics.density
         return (dipValue * scale + 0.5f).toInt()
     }
-
-
 }

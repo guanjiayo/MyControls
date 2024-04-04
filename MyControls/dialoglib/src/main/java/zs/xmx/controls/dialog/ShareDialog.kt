@@ -36,7 +36,7 @@ class ShareDialog : BaseDialog() {
             val dialog = ShareDialog()
             dialog.setDimAmount(0.5f)//背景暗度
             dialog.setGravity(Gravity.BOTTOM)//显示位置
-            dialog.setAnimStyle(R.style.ShareDialogAnim)//动画样式
+            dialog.setAnimStyle(R.style.DialogBottomAnim)//动画样式
             return dialog
         }
     }

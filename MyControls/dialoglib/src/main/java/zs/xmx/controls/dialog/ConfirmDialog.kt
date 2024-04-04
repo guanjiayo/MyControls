@@ -57,7 +57,7 @@ class ConfirmDialog : BaseDialog() {
             dialog.setDimAmount(0.3f)
             dialog.setMargin(60)
             dialog.setCanceledOnTouchOutside(false)
-            dialog.setAnimStyle(R.style.ConfirmDialogAnim)//动画样式
+            dialog.setAnimStyle(R.style.DialogScaleAnim)//动画样式
             dialog.arguments = bundle
             return dialog
         }
