@@ -150,6 +150,18 @@ abstract class BaseDialog : DialogFragment() {
     }
 
     /**
+     * 宽度全屏下,添加左右边距
+     */
+    fun setMargin(margin: Int): BaseDialog {
+        if (!mIsFullScreen) {
+            mWidth = getScreenWidth(mContext) - 2 * dp2px(mContext, margin.toFloat())
+        } else {
+            throw IllegalStateException("Cannot set margin when in fullscreen mode.")
+        }
+        return this
+    }
+
+    /**
      * 设置全屏(宽高)
      */
     fun setFullscreenMode(): BaseDialog {
