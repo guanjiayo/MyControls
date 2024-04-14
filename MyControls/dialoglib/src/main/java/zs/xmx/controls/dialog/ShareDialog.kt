@@ -35,6 +35,7 @@ class ShareDialog : BaseDialog() {
         fun newInstance(): ShareDialog {
             val dialog = ShareDialog()
             dialog.setDimAmount(0.5f)//背景暗度
+            dialog.setFullscreenWidth()
             dialog.setGravity(Gravity.BOTTOM)//显示位置
             dialog.setAnimStyle(R.style.DialogBottomAnim)//动画样式
             return dialog

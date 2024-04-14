@@ -35,10 +35,10 @@ import zs.xmx.controls.R
 abstract class BaseDialog : DialogFragment() {
 
     private lateinit var mContext: Context//上下文
-    private var mDimAmount = 0.5f//背景昏暗度
-    private var mMargin = 0//左右边距
+    private var mDimAmount = 0.3f//背景昏暗度
     private var mAnimStyle = 0//进入退出动画
     private var mInvisibleDismiss = true//当页面不可见时,dismiss
+    private var mIsFullScreen = false//是否全屏显示(有可能是宽度全屏或者宽高全屏)
     private var mWidth: Int = 0
     private var mHeight: Int = 0
     private var mGravity = Gravity.CENTER//dialog 显示位置(默认居中显示)
@@ -72,7 +72,7 @@ abstract class BaseDialog : DialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        initParams()
+        initViews()
     }
 
     override fun onPause() {
@@ -82,7 +82,7 @@ abstract class BaseDialog : DialogFragment() {
         }
     }
 
-    private fun initParams() {
+    private fun initViews() {
         val window = dialog?.window
         if (window != null) {
             val params = window.attributes
@@ -92,20 +92,19 @@ abstract class BaseDialog : DialogFragment() {
             params.gravity = mGravity
 
             /**由于DialogFragment 默认会让布局自带边距,所以我们如下设置Dialog宽高**/
-            //设置dialog宽度
-            if (mWidth == 0) {
-                params.width = getScreenWidth(mContext) - 2 * dp2px(mContext, mMargin.toFloat())
+            if (mIsFullScreen) {
+                if (mWidth != 0) { //两条件满足 => 宽度全屏
+                    params.width = mWidth
+                } else {
+                    params.width = WindowManager.LayoutParams.MATCH_PARENT
+                    params.height = WindowManager.LayoutParams.MATCH_PARENT
+                }
             } else {
-                params.width = dp2px(mContext, mWidth.toFloat())
+                if (mWidth != 0) {
+                    params.width = dp2px(mContext, mWidth.toFloat())
+                    params.height = dp2px(mContext, mHeight.toFloat())
+                }
             }
-
-            //设置dialog高度
-            if (mHeight == 0) {
-                params.height = WindowManager.LayoutParams.WRAP_CONTENT
-            } else {
-                params.height = dp2px(mContext, mHeight.toFloat())
-            }
-
 
             //设置dialog动画
             if (mAnimStyle != 0) {
@@ -139,20 +138,31 @@ abstract class BaseDialog : DialogFragment() {
 
     /**
      * 设置宽高 单位是dp
-     * width 0 , height设置 -2 是 match_parent
      */
     fun setSize(width: Int, height: Int): BaseDialog {
-        mWidth = width
-        mHeight = height
+        if (!mIsFullScreen) {
+            mWidth = width
+            mHeight = height
+        } else {
+            throw IllegalStateException("Cannot set width and height when in fullscreen mode.")
+        }
         return this
     }
 
+    /**
+     * 设置全屏(宽高)
+     */
+    fun setFullscreenMode(): BaseDialog {
+        mIsFullScreen = true
+        return this
+    }
 
     /**
-     * 设置左右margin比例
+     * 设置宽全屏
      */
-    fun setMargin(margin: Int): BaseDialog {
-        mMargin = margin
+    fun setFullscreenWidth(): BaseDialog {
+        mWidth = WindowManager.LayoutParams.MATCH_PARENT
+        mIsFullScreen = true
         return this
     }
 

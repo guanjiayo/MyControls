@@ -55,7 +55,6 @@ class ConfirmDialog : BaseDialog() {
             bundle.putString("type", type)
             val dialog = ConfirmDialog()
             dialog.setDimAmount(0.3f)
-            dialog.setMargin(60)
             dialog.setCanceledOnTouchOutside(false)
             dialog.setAnimStyle(R.style.DialogScaleAnim)//动画样式
             dialog.arguments = bundle

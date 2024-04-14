@@ -1,6 +1,8 @@
 package zs.xmx.controls
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import zs.xmx.controls.dialog.CommentDialog
@@ -32,17 +34,28 @@ class DialogActivity : AppCompatActivity(), View.OnClickListener {
         findViewById<View>(R.id.btn_progress).setOnClickListener(this)
     }
 
-
+    private val mLoadingDialog = LoadingDialog.newInstance()
     override fun onClick(v: View) {
         when (v.id) {
             R.id.btn_confirm -> ConfirmDialog.newInstance(DialogType.LOGIN)
-                    .show(supportFragmentManager)
+                .show(supportFragmentManager)
+
             R.id.btn_share -> ShareDialog.newInstance()
-                    .show(supportFragmentManager)
+                .show(supportFragmentManager)
+
             R.id.btn_comment -> CommentDialog.newInstance()
+                .show(supportFragmentManager)
+
+            R.id.btn_progress -> {
+                mLoadingDialog
+                    .setLabel("正在加载")
+                    .setDetailLabel("正在设置")
                     .show(supportFragmentManager)
-            R.id.btn_progress -> LoadingDialog.newInstance()
-                    .show(supportFragmentManager)
+                val handler = Handler(Looper.getMainLooper())
+                handler.postDelayed({
+                    mLoadingDialog.setLabel("正在加载80%....")
+                }, 1500L)
+            }
         }
     }
 }
