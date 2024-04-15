@@ -50,11 +50,8 @@ class DialogActivity : AppCompatActivity(), View.OnClickListener {
                 mLoadingDialog
                     .setLabel("正在加载")
                     .setDetailLabel("正在设置")
+                    .scheduleDismiss(3000L)
                     .show(supportFragmentManager)
-                val handler = Handler(Looper.getMainLooper())
-                handler.postDelayed({
-                    mLoadingDialog.setLabel("正在加载80%....")
-                }, 1500L)
             }
         }
     }

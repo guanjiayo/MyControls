@@ -4,6 +4,8 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.TextUtils
 import android.view.Gravity
 import android.view.View
@@ -30,6 +32,7 @@ class LoadingDialog private constructor() : BaseDialog() {
     private var mLabelColor = Color.WHITE
     private var mDetailColor = Color.WHITE
     private lateinit var animDrawable: AnimationDrawable
+    private var mDismissTimer: Handler? = null
 
     override fun setLayout(): Int {
         return R.layout.dialog_loading
@@ -74,8 +77,13 @@ class LoadingDialog private constructor() : BaseDialog() {
      * 设置自动消失时间
      * @param duration 毫秒
      */
-    fun setDismissDuration(duration: Long): LoadingDialog {
-
+    fun scheduleDismiss(duration: Long): LoadingDialog {
+        if (mDismissTimer == null) {
+            mDismissTimer = Handler(Looper.getMainLooper())
+        }
+        mDismissTimer?.postDelayed({
+            if (isShowing) dismissAllowingStateLoss()
+        }, duration)
         return this
     }
 
@@ -96,7 +104,11 @@ class LoadingDialog private constructor() : BaseDialog() {
      * 隐藏加载对话框，动画停止
      */
     override fun dismiss() {
-        super.dismiss()
         animDrawable.stop()
+        if (mDismissTimer != null) {
+            mDismissTimer!!.removeCallbacksAndMessages(null)
+            mDismissTimer = null
+        }
+        super.dismiss()
     }
 }

@@ -2,6 +2,8 @@ package zs.xmx.controls.dialog.base
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +15,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import zs.xmx.controls.R
+import java.lang.Exception
 
 
 /*
@@ -30,7 +33,6 @@ import zs.xmx.controls.R
  * 2. 重写 onCreateView()
  * 一般用于创建复杂内容弹窗或全屏展示效果的场景，UI 复杂，功能复杂，一般有网络请求等异步操作。
  *
- *  ps: 仅适用于Dialog布局宽高固定时使用
  */
 abstract class BaseDialog : DialogFragment() {
 
@@ -38,9 +40,11 @@ abstract class BaseDialog : DialogFragment() {
     private var mDimAmount = 0.3f//背景昏暗度
     private var mAnimStyle = 0//进入退出动画
     private var mInvisibleDismiss = true//当页面不可见时,dismiss
-    private var mIsFullScreen = false//是否全屏显示(有可能是宽度全屏或者宽高全屏)
+    private var mIsFullScreen = false//是否全屏显示
+    private var mIsFullScreenWidth = false//是否宽度全屏显示
     private var mWidth: Int = 0
     private var mHeight: Int = 0
+    private var mMargin: Int = 0
     private var mGravity = Gravity.CENTER//dialog 显示位置(默认居中显示)
 
     private var isSetOnTouchOutside = false//通知在getDialog()不为空时设置CancelOnTouchOutside属性
@@ -93,16 +97,20 @@ abstract class BaseDialog : DialogFragment() {
 
             /**由于DialogFragment 默认会让布局自带边距,所以我们如下设置Dialog宽高**/
             if (mIsFullScreen) {
-                if (mWidth != 0) { //两条件满足 => 宽度全屏
-                    params.width = mWidth
+                if (mIsFullScreenWidth) { //两条件满足 => 宽度全屏
+                    params.width = WindowManager.LayoutParams.MATCH_PARENT
                 } else {
                     params.width = WindowManager.LayoutParams.MATCH_PARENT
                     params.height = WindowManager.LayoutParams.MATCH_PARENT
                 }
             } else {
-                if (mWidth != 0) {
-                    params.width = dp2px(mContext, mWidth.toFloat())
-                    params.height = dp2px(mContext, mHeight.toFloat())
+                if (mMargin != 0) {
+                    params.width = getScreenWidth(mContext) - 2 * dp2px(mContext, mMargin.toFloat())
+                } else {
+                    if (mWidth != 0) {
+                        params.width = dp2px(mContext, mWidth.toFloat())
+                        params.height = dp2px(mContext, mHeight.toFloat())
+                    }
                 }
             }
 
@@ -140,12 +148,13 @@ abstract class BaseDialog : DialogFragment() {
      * 设置宽高 单位是dp
      */
     fun setSize(width: Int, height: Int): BaseDialog {
-        if (!mIsFullScreen) {
-            mWidth = width
-            mHeight = height
-        } else {
+        if (mIsFullScreen) {
             throw IllegalStateException("Cannot set width and height when in fullscreen mode.")
+        } else if (mMargin != 0) {
+            throw IllegalStateException("Cannot set size when margin is already set.")
         }
+        mWidth = width
+        mHeight = height
         return this
     }
 
@@ -154,7 +163,7 @@ abstract class BaseDialog : DialogFragment() {
      */
     fun setMargin(margin: Int): BaseDialog {
         if (!mIsFullScreen) {
-            mWidth = getScreenWidth(mContext) - 2 * dp2px(mContext, margin.toFloat())
+            mMargin = margin
         } else {
             throw IllegalStateException("Cannot set margin when in fullscreen mode.")
         }
@@ -173,7 +182,7 @@ abstract class BaseDialog : DialogFragment() {
      * 设置宽全屏
      */
     fun setFullscreenWidth(): BaseDialog {
-        mWidth = WindowManager.LayoutParams.MATCH_PARENT
+        mIsFullScreenWidth = true
         mIsFullScreen = true
         return this
     }
@@ -264,16 +273,18 @@ abstract class BaseDialog : DialogFragment() {
      * 显示Dialog
      */
     fun show(manager: FragmentManager): BaseDialog {
-        val tag = System.currentTimeMillis().toString()
-        val fragment = manager.findFragmentByTag(tag)
-        if (fragment != null) {
-            val fragmentTransaction: FragmentTransaction = manager.beginTransaction()
-            fragmentTransaction.remove(fragment)
-            fragmentTransaction.commitAllowingStateLoss()
-        }
         try {
-            super.show(manager, tag)
-        } catch (e: IllegalAccessException) {
+            val tag = System.currentTimeMillis().toString()
+            val fragment = manager.findFragmentByTag(tag)
+            if (fragment != null) {
+                val fragmentTransaction: FragmentTransaction = manager.beginTransaction()
+                fragmentTransaction.remove(fragment)
+                fragmentTransaction.commitAllowingStateLoss()
+            }
+            if (!isShowing) {
+                super.show(manager, tag)
+            }
+        } catch (e: Exception) {
             e.printStackTrace()
         }
         return this
