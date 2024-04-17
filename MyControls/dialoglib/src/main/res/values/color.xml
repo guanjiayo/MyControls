@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="loadingBackground_default_color">#b1000000</color><!--加载弹窗背景颜色-->
+</resources>

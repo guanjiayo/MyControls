@@ -1,17 +1,13 @@
 package zs.xmx.controls.dialog
 
-import android.content.Context
 import android.graphics.Color
-import android.graphics.drawable.AnimationDrawable
-import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.text.TextUtils
 import android.view.Gravity
 import android.view.View
-import android.view.WindowManager
-import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
 import zs.xmx.controls.R
 import zs.xmx.controls.dialog.base.BaseDialog
 import zs.xmx.controls.dialog.base.BaseDialogVH
@@ -24,14 +20,17 @@ import zs.xmx.controls.dialog.base.BaseDialogVH
  *
  */
 class LoadingDialog private constructor() : BaseDialog() {
-    private lateinit var loadingView: ImageView
+    private var mBackgroundLayout: LoadingBackgroundLayout? = null
+    private var mBackgroundCornerRadius: Float = 10f//背景圆角
+    private var mBackgroundColor = Color.BLACK
+    private lateinit var mSpinView: SpinView//旋转菊花
     private var mLabelText: TextView? = null
     private var mLabel: String? = null
     private var mDetailLabelText: TextView? = null
     private var mDetailLabel: String? = null
     private var mLabelColor = Color.WHITE
     private var mDetailColor = Color.WHITE
-    private lateinit var animDrawable: AnimationDrawable
+    private var mAnimateSpeed: Int = 1//动画速度
     private var mDismissTimer: Handler? = null
 
     override fun setLayout(): Int {
@@ -39,24 +38,30 @@ class LoadingDialog private constructor() : BaseDialog() {
     }
 
     override fun convertView(holder: BaseDialogVH, dialog: BaseDialog) {
-        //和获取动画视图
-        loadingView = holder.getView(R.id.iv_loading)
+        mBackgroundLayout = holder.getView(R.id.background)
+        mBackgroundLayout!!.setBaseColor(mBackgroundColor)
+        mBackgroundLayout!!.setBackgroundRadius(mBackgroundCornerRadius)
+        //动画视图
+        mSpinView = holder.getView(R.id.spinView)
+        mSpinView.setAnimationSpeed(mAnimateSpeed.toFloat())
+        //一级标签
         mLabelText = holder.getView(R.id.label)
         setLabel(mLabel)
+        //二级标签
         mDetailLabelText = holder.getView(R.id.detail_label)
         setDetailLabel(mDetailLabel)
-        animDrawable = loadingView.background as AnimationDrawable
-        animDrawable.start()
     }
 
     /**
      * 一级提示文本
      */
-    fun setLabel(label: String?): LoadingDialog {
+    fun setLabel(label: String?, color: Int = Color.WHITE): LoadingDialog {
         mLabel = label
+        mLabelColor = color
         mLabelText?.apply {
             visibility = if (TextUtils.isEmpty(label)) View.GONE else View.VISIBLE
             text = label
+            setTextColor(color)
         }
         return this
     }
@@ -64,17 +69,45 @@ class LoadingDialog private constructor() : BaseDialog() {
     /**
      * 二级提示文本
      */
-    fun setDetailLabel(detailsLabel: String?): LoadingDialog {
+    fun setDetailLabel(detailsLabel: String?, color: Int = Color.WHITE): LoadingDialog {
         mDetailLabel = detailsLabel
+        mDetailColor = color
         mDetailLabelText?.apply {
             visibility = if (TextUtils.isEmpty(detailsLabel)) View.GONE else View.VISIBLE
             text = detailsLabel
+            setTextColor(color)
         }
         return this
     }
 
     /**
-     * 设置自动消失时间
+     * 设置背景颜色
+     * @param color ARGB color
+     */
+    fun setBackgroundColor(color: Int): LoadingDialog {
+        mBackgroundColor = color
+        return this
+    }
+
+    /**
+     * 设置背景圆角
+     * 默认10dp
+     */
+    fun setBackgroundRadius(radius: Float): LoadingDialog {
+        mBackgroundCornerRadius = radius
+        return this
+    }
+
+    /**
+     * 设置动画速度
+     */
+    fun setAnimationSpeed(scale: Int): LoadingDialog {
+        mAnimateSpeed = scale
+        return this
+    }
+
+    /**
+     * 设置Dialog自动消失时间
      * @param duration 毫秒
      */
     fun scheduleDismiss(duration: Long): LoadingDialog {
@@ -82,33 +115,29 @@ class LoadingDialog private constructor() : BaseDialog() {
             mDismissTimer = Handler(Looper.getMainLooper())
         }
         mDismissTimer?.postDelayed({
-            if (isShowing) dismissAllowingStateLoss()
+            if (isShowing) dismiss()
         }, duration)
         return this
     }
 
-    companion object {
-
-        fun newInstance(): LoadingDialog {
-            val dialog = LoadingDialog()
-            dialog.setDimAmount(0.3f)//背景暗度
-            dialog.setGravity(Gravity.CENTER)//显示位置
-            dialog.setAnimStyle(R.style.DialogScaleAnim)//动画样式
-            return dialog
-        }
-
-
+    override fun onResume() {
+        super.onResume()
     }
 
-    /**
-     * 隐藏加载对话框，动画停止
-     */
-    override fun dismiss() {
-        animDrawable.stop()
+    override fun onPause() {
         if (mDismissTimer != null) {
             mDismissTimer!!.removeCallbacksAndMessages(null)
             mDismissTimer = null
         }
-        super.dismiss()
+        super.onPause()
+    }
+
+    companion object {
+        fun newInstance() = LoadingDialog().apply {
+            setDimAmount(0.3f)//背景暗度
+            setGravity(Gravity.CENTER)//显示位置
+            setAnimStyle(R.style.DialogScaleAnim)//动画样式
+        }
+
     }
 }

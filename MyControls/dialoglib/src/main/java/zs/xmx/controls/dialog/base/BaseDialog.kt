@@ -273,19 +273,19 @@ abstract class BaseDialog : DialogFragment() {
      * 显示Dialog
      */
     fun show(manager: FragmentManager): BaseDialog {
-        try {
-            val tag = System.currentTimeMillis().toString()
+        if (!isShowing) {
+            val tag = this::class.java.simpleName
             val fragment = manager.findFragmentByTag(tag)
-            if (fragment != null) {
+            if (fragment != null && fragment.isAdded) {
                 val fragmentTransaction: FragmentTransaction = manager.beginTransaction()
                 fragmentTransaction.remove(fragment)
                 fragmentTransaction.commitAllowingStateLoss()
             }
-            if (!isShowing) {
+            try {
                 super.show(manager, tag)
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
-        } catch (e: Exception) {
-            e.printStackTrace()
         }
         return this
     }

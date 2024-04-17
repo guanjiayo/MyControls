@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<zs.xmx.controls.dialog.LoadingBackgroundLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/background"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/progress_dialog_bg"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="15dp">
 
-    <ImageView
-        android:id="@+id/iv_loading"
+    <zs.xmx.controls.dialog.SpinView
+        android:id="@+id/spinView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/progress_dialog_anim" />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/label"
@@ -33,4 +32,4 @@
         android:textSize="13sp"
         android:visibility="gone" />
 
-</LinearLayout>
+</zs.xmx.controls.dialog.LoadingBackgroundLayout>
