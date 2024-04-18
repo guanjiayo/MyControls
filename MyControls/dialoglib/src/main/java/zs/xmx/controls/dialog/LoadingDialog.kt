@@ -20,9 +20,6 @@ import zs.xmx.controls.dialog.base.BaseDialogVH
  *
  */
 class LoadingDialog private constructor() : BaseDialog() {
-    private var mBackgroundLayout: LoadingBackgroundLayout? = null
-    private var mBackgroundCornerRadius: Float = 10f//背景圆角
-    private var mBackgroundColor = Color.BLACK
     private lateinit var mSpinView: SpinView//旋转菊花
     private var mLabelText: TextView? = null
     private var mLabel: String? = null
@@ -38,9 +35,6 @@ class LoadingDialog private constructor() : BaseDialog() {
     }
 
     override fun convertView(holder: BaseDialogVH, dialog: BaseDialog) {
-        mBackgroundLayout = holder.getView(R.id.background)
-        mBackgroundLayout!!.setBaseColor(mBackgroundColor)
-        mBackgroundLayout!!.setBackgroundRadius(mBackgroundCornerRadius)
         //动画视图
         mSpinView = holder.getView(R.id.spinView)
         mSpinView.setAnimationSpeed(mAnimateSpeed.toFloat())
@@ -77,24 +71,6 @@ class LoadingDialog private constructor() : BaseDialog() {
             text = detailsLabel
             setTextColor(color)
         }
-        return this
-    }
-
-    /**
-     * 设置背景颜色
-     * @param color ARGB color
-     */
-    fun setBackgroundColor(color: Int): LoadingDialog {
-        mBackgroundColor = color
-        return this
-    }
-
-    /**
-     * 设置背景圆角
-     * 默认10dp
-     */
-    fun setBackgroundRadius(radius: Float): LoadingDialog {
-        mBackgroundCornerRadius = radius
         return this
     }
 
