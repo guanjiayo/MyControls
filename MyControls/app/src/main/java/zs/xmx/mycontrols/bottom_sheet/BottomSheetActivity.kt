@@ -1,8 +1,10 @@
 package zs.xmx.mycontrols.bottom_sheet
 
 import android.os.Bundle
+import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.NestedScrollView
 import zs.xmx.mycontrols.R
 
 class BottomSheetActivity : AppCompatActivity() {
@@ -31,8 +33,10 @@ class BottomSheetActivity : AppCompatActivity() {
     }
 
     private fun initBottomBehavior() {
+        val mNsvList = findViewById<NestedScrollView>(R.id.nsv_list)
         bottomSheetBehavior = DrawerBottomSheetBehavior.from(mBottomSheet)
         bottomSheetBehavior.isHideable = false//设置BottomSheet是否可隐藏
+
 
         /*bottomSheetBehavior.addBottomSheetCallback(object : DefaultBottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {
@@ -43,5 +47,15 @@ class BottomSheetActivity : AppCompatActivity() {
                 }
             }
         })*/
+        //修改部分机型xml方式设置peekHeight和实际不一样问题
+        mNsvList.viewTreeObserver.addOnGlobalLayoutListener(object : OnGlobalLayoutListener {
+            override fun onGlobalLayout() {
+                mNsvList.viewTreeObserver.removeOnGlobalLayoutListener(this)
+                bottomSheetBehavior.peekHeight = mNsvList.top
+            }
+
+        })
+
+
     }
 }
