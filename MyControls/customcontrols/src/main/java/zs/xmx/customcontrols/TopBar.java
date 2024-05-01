@@ -204,7 +204,7 @@ public class TopBar extends RelativeLayout {
      * 设置左侧按钮是否可见
      * @param flag
      */
-    public void setLeftIsVisable(boolean flag){
+    public void setLeftIsVisible(boolean flag){
         if(flag){
 
             leftButton.setVisibility(View.VISIBLE);

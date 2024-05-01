@@ -12,6 +12,7 @@ import zs.xmx.ExpandEditTextActivity
 import zs.xmx.controls.DialogActivity
 import zs.xmx.lib_ddmenu.DropDownMenuActivity
 import zs.xmx.mycontrols.bottom_sheet.BottomSheetActivity
+import zs.xmx.mycontrols.citypicker.CityPickerActivity
 import zs.xmx.mycontrols.expand_textview.ExpandTextViewActivity
 import zs.xmx.mycontrols.shape_shadow.ShapeDrawableActivity
 import zs.xmx.progressbar.ProgressBarActivity
@@ -47,6 +48,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         mList.add("ExpandTextView")
         mList.add("BottomSheet 实现三段式折叠控件")
         mList.add("DropDownMenu 多条件筛选菜单")
+        mList.add("CityPicker 城市选择器+字母索引")
     }
 
     private fun initView() {
@@ -72,6 +74,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             7 -> startActivity(Intent(this, ExpandTextViewActivity::class.java))
             8 -> startActivity(Intent(this, BottomSheetActivity::class.java))
             9 -> startActivity(Intent(this, DropDownMenuActivity::class.java))
+            10 -> startActivity(Intent(this, CityPickerActivity::class.java))
         }
     }
 

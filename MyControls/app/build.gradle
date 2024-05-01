@@ -29,8 +29,9 @@ android {
         jvmTarget = '1.8'
     }
 
-    viewBinding {
-        enabled = true
+    buildFeatures {
+        viewBinding true
+        dataBinding true
     }
 
 }
@@ -57,5 +58,8 @@ dependencies {
     implementation 'com.github.MZCretin:ExpandableTextView:v1.6.1-x'
     // https://github.com/JavaNoober/BackgroundLibrary,无需shape实现相同相同效果框架
     implementation 'com.github.JavaNoober.BackgroundLibrary:libraryx:1.7.2'
+    implementation libs.baseRecyclerViewAdapterHelper
+    //ViewBinding辅助类
+    implementation(libs.viewbinding.ktx)
 
 }

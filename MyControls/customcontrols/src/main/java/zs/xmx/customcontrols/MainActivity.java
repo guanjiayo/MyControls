@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         setContentView(R.layout.activity_main);
         topBar = (TopBar) findViewById(R.id.topbar);
-        topBar.setLeftIsVisable(true);
+        topBar.setLeftIsVisible(true);
         topBar.setOnTopbarClickListener(new topbarClickListener() {
             @Override
             public void leftClick() {

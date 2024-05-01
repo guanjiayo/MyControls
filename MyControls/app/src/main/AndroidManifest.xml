@@ -9,6 +9,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".citypicker.CityPickerV2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".citypicker.CityPickerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".toolbar.ToolBarActivity"
+            android:exported="false" />
+        <activity
             android:name=".bottom_sheet.BottomSheetActivity"
             android:exported="false" />
         <activity
