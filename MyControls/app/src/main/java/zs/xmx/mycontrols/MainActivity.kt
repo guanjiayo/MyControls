@@ -15,6 +15,7 @@ import zs.xmx.mycontrols.bottom_sheet.BottomSheetActivity
 import zs.xmx.mycontrols.citypicker.CityPickerActivity
 import zs.xmx.mycontrols.expand_textview.ExpandTextViewActivity
 import zs.xmx.mycontrols.shape_shadow.ShapeDrawableActivity
+import zs.xmx.mycontrols.toolbar.ToolBarActivity
 import zs.xmx.progressbar.ProgressBarActivity
 import zs.xmx.rvgather.GatherRecycleViewActivity
 import zs.xmx.timer.TimerActivity
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         mList.add("BottomSheet 实现三段式折叠控件")
         mList.add("DropDownMenu 多条件筛选菜单")
         mList.add("CityPicker 城市选择器+字母索引")
+        mList.add("ToolBar 常用标题栏")
     }
 
     private fun initView() {
@@ -75,6 +77,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             8 -> startActivity(Intent(this, BottomSheetActivity::class.java))
             9 -> startActivity(Intent(this, DropDownMenuActivity::class.java))
             10 -> startActivity(Intent(this, CityPickerActivity::class.java))
+            11 -> startActivity(Intent(this, ToolBarActivity::class.java))
         }
     }
 
