@@ -1,10 +1,10 @@
-package zs.xmx.mycontrols.citypicker.adapter.provider
+package zs.xmx.mycontrols.citypicker.v1.adapter.provider
 
 import com.chad.library.adapter.base.provider.BaseItemProvider
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import zs.xmx.mycontrols.R
 import zs.xmx.mycontrols.citypicker.CityPickerEntity
-import zs.xmx.mycontrols.citypicker.adapter.CityPickerAdapter
+import zs.xmx.mycontrols.citypicker.v1.adapter.CityPickerAdapter
 
 class CityListProvider : BaseItemProvider<CityPickerEntity>() {
 

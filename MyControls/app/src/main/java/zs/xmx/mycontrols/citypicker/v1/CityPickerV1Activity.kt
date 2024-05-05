@@ -1,4 +1,4 @@
-package zs.xmx.mycontrols.citypicker
+package zs.xmx.mycontrols.citypicker.v1
 
 import android.content.Context
 import android.os.Bundle
@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dylanc.viewbinding.binding
 import org.json.JSONArray
-import zs.xmx.mycontrols.citypicker.adapter.CityPickerAdapter
-import zs.xmx.mycontrols.citypicker.adapter.CitySearchAdapter
+import zs.xmx.mycontrols.citypicker.City
+import zs.xmx.mycontrols.citypicker.CityPickerEntity
+import zs.xmx.mycontrols.citypicker.v1.adapter.CityPickerAdapter
+import zs.xmx.mycontrols.citypicker.v1.adapter.CitySearchAdapter
 import zs.xmx.mycontrols.databinding.ActivityCityPickerV1Binding
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -71,14 +73,12 @@ class CityPickerV1Activity : AppCompatActivity() {
     }
 
     private fun initData() {
-        val heads = mutableListOf<String>()
         val jsonString = getJson(this@CityPickerV1Activity, "city.json")
         val jsonArray = JSONArray(jsonString)
         for (i in 0 until jsonArray.length()) {
             val jsonObject = jsonArray.getJSONObject(i)
             val initial = jsonObject.getString("initial")
             mCityPickerList.add(CityPickerEntity(initial = initial))
-            heads.add(initial)
             val cityList = jsonObject.getJSONArray("list")
             for (j in 0 until cityList.length()) {
                 val cityObject = cityList.getJSONObject(j)
@@ -128,7 +128,6 @@ class CityPickerV1Activity : AppCompatActivity() {
     }
 
     private fun initEvent() {
-        //todo city.json 的数据还是做成单数组多对象,不然不好筛选数据
         //搜索输入文本框监听
         mBinding.etSearch.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {

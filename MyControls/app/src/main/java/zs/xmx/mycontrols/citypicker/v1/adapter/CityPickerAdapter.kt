@@ -1,9 +1,9 @@
-package zs.xmx.mycontrols.citypicker.adapter
+package zs.xmx.mycontrols.citypicker.v1.adapter
 
 import com.chad.library.adapter.base.BaseProviderMultiAdapter
 import zs.xmx.mycontrols.citypicker.CityPickerEntity
-import zs.xmx.mycontrols.citypicker.adapter.provider.CityGroupProvider
-import zs.xmx.mycontrols.citypicker.adapter.provider.CityListProvider
+import zs.xmx.mycontrols.citypicker.v1.adapter.provider.CityGroupProvider
+import zs.xmx.mycontrols.citypicker.v1.adapter.provider.CityListProvider
 
 class CityPickerAdapter : BaseProviderMultiAdapter<CityPickerEntity>() {
 

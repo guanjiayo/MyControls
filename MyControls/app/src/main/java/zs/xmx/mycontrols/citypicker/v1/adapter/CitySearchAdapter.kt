@@ -1,4 +1,4 @@
-package zs.xmx.mycontrols.citypicker.adapter
+package zs.xmx.mycontrols.citypicker.v1.adapter
 
 import android.widget.TextView
 import com.chad.library.adapter.base.BaseQuickAdapter

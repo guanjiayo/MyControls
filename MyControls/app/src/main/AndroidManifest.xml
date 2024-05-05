@@ -12,10 +12,16 @@
             android:name=".toolbar.headbar.HeadBarActivity"
             android:exported="false" />
         <activity
-            android:name=".citypicker.CityPickerV2Activity"
+            android:name=".citypicker.v2.CityPickerV2Activity"
             android:exported="false" />
         <activity
             android:name=".citypicker.CityPickerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".citypicker.v1.CityPickerV1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".shape_shadow.ShapeDrawableActivity"
             android:exported="false" />
         <activity
             android:name=".toolbar.ToolBarActivity"
@@ -36,7 +42,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".shape_shadow.ShapeDrawableActivity" />
+
     </application>
 
 </manifest>
