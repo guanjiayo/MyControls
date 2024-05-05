@@ -12,10 +12,10 @@ class LocationCityProviderV2 : BaseItemProvider<CityEntity>() {
 
     override val itemViewType: Int = CityPickerAdapterV2.TYPE_LOCATION_CITY
 
-    override val layoutId: Int = R.layout.item_city_list
+    override val layoutId: Int = R.layout.item_location_city
     override fun convert(helper: BaseViewHolder, item: CityEntity) {
         with(helper) {
-            setText(R.id.tv_city_name, item.name)
+            setText(R.id.tv_location, item.name)
         }
     }
 

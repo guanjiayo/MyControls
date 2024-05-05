@@ -17,9 +17,9 @@ data class CityPickerEntity(
 //方案二: json数据就一个数组(推荐)
 //ps: 建议如果后台返回的是方案一的数据,也转成方案二的结构,方便排序查询
 data class CityEntity(
-    val initial: String? = null,//首字母
-    val code: String,
-    val name: String,
-    val pinyin: String,//全拼
-    val label: String
+    val initial: String = "",//首字母(分组标题)
+    val code: String = "",
+    val name: String = "",
+    val pinyin: String = "",//全拼
+    val label: String = ""
 )
