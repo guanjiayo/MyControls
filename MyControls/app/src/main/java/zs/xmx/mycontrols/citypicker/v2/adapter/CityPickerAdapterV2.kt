@@ -15,18 +15,10 @@ class CityPickerAdapterV2 : BaseProviderMultiAdapter<CityEntity>() {
     }
 
     override fun getItemType(data: List<CityEntity>, position: Int): Int {
-        return when (position) {
-            0 -> {
-                TYPE_LOCATION_CITY
-            }
-
-            1 -> {
-                TYPE_HOT_CITY
-            }
-
-            else -> {
-                TYPE_CITY_LIST
-            }
+        return when (data[position].initial) {
+            "当前定位城市" -> TYPE_LOCATION_CITY
+            "热门城市" -> TYPE_HOT_CITY
+            else -> TYPE_CITY_LIST
         }
     }
 

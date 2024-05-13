@@ -61,6 +61,11 @@ class CityPickerV2Activity : AppCompatActivity() {
 
     private fun initData() {
         mCityPickerList.add(CityEntity(initial = "当前定位城市", name = "正在定位中..."))
+        mCityPickerList.add(CityEntity(initial = "热门城市", name = "深圳"))
+        mCityPickerList.add(CityEntity(initial = "热门城市", name = "北京"))
+        mCityPickerList.add(CityEntity(initial = "热门城市", name = "上海"))
+        mCityPickerList.add(CityEntity(initial = "热门城市", name = "广州"))
+        mCityPickerList.add(CityEntity(initial = "热门城市", name = "中山"))
         val jsonString = getJson(this@CityPickerV2Activity, "city2.json")
         val jsonArray = JSONArray(jsonString)
         for (i in 0 until jsonArray.length()) {

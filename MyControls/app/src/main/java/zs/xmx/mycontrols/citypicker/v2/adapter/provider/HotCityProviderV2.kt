@@ -1,5 +1,6 @@
 package zs.xmx.mycontrols.citypicker.v2.adapter.provider
 
+import android.util.Log
 import com.chad.library.adapter.base.provider.BaseItemProvider
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import zs.xmx.mycontrols.R
@@ -12,10 +13,11 @@ class HotCityProviderV2 : BaseItemProvider<CityEntity>() {
 
     override val itemViewType: Int = CityPickerAdapterV2.TYPE_HOT_CITY
 
-    override val layoutId: Int = R.layout.item_city_list
+    override val layoutId: Int = R.layout.item_hot_city
     override fun convert(helper: BaseViewHolder, item: CityEntity) {
+        //https://github.com/lvlife/shoppingDemo
         with(helper) {
-            setText(R.id.tv_city_name, item.name)
+            Log.i("TTTT", "item: $item")
         }
     }
 
