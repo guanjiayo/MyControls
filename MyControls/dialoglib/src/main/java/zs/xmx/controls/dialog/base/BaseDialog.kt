@@ -47,6 +47,11 @@ abstract class BaseDialog : DialogFragment() {
     private var mMargin: Int = 0
     private var mGravity = Gravity.CENTER//dialog 显示位置(默认居中显示)
 
+    //宽限时间相关
+    private var mGraceTimer: Handler? = null
+    private var mGraceTimeMs = 0//宽限时间
+    private var mFinished = false
+
     private var isSetOnTouchOutside = false//通知在getDialog()不为空时设置CancelOnTouchOutside属性
     private var mIsCancel = true//setCancelOnTouchOutside(isCancel)
 
@@ -263,6 +268,15 @@ abstract class BaseDialog : DialogFragment() {
     }
 
     /**
+     * 宽限时间
+     * 场景: 快速show然后dismiss的情况
+     */
+    fun setGraceTime(graceTimeMs: Int): BaseDialog {
+        mGraceTimeMs = graceTimeMs
+        return this
+    }
+
+    /**
      * Dialog 是否可见
      */
     val isShowing: Boolean
@@ -274,6 +288,7 @@ abstract class BaseDialog : DialogFragment() {
      */
     fun show(manager: FragmentManager): BaseDialog {
         if (!isShowing) {
+            mFinished = false
             val tag = this::class.java.simpleName
             val fragment = manager.findFragmentByTag(tag)
             if (fragment != null && fragment.isAdded) {
@@ -282,12 +297,31 @@ abstract class BaseDialog : DialogFragment() {
                 fragmentTransaction.commitAllowingStateLoss()
             }
             try {
-                super.show(manager, tag)
+                if (mGraceTimeMs == 0) {
+                    super.show(manager, tag)
+                } else {
+                    mGraceTimer = Handler(Looper.getMainLooper())
+                    mGraceTimer!!.postDelayed({
+                        if (!mFinished) {
+                            super.show(manager, tag)
+                        }
+                    }, mGraceTimeMs.toLong())
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
         return this
+    }
+
+    override fun dismiss() {
+        mFinished = true
+        if (isShowing) dismiss()
+        if (mGraceTimer != null) {
+            mGraceTimer!!.removeCallbacksAndMessages(null)
+            mGraceTimer = null
+        }
+        super.dismiss()
     }
 
     /**
