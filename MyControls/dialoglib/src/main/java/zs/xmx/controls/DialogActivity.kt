@@ -39,10 +39,10 @@ class DialogActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private var mLoadingDialog: LoadingDialog? = null
+    private var mConfirmDialog: ConfirmDialog? = null
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.btn_confirm -> ConfirmDialog.newInstance(DialogType.LOGIN)
-                .show(supportFragmentManager)
+            R.id.btn_confirm -> showConfirmDialog()
 
             R.id.btn_share -> ShareDialog.newInstance()
                 .show(supportFragmentManager)
@@ -56,20 +56,25 @@ class DialogActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    private fun showConfirmDialog() {
+        mConfirmDialog = ConfirmDialog.newInstance(DialogType.LOGIN)
+        mConfirmDialog?.show(supportFragmentManager)
+    }
+
     private fun showLoadingDialog() {
         mLoadingDialog = LoadingDialog.newInstance()
             .apply {
                 setInvisibleDismiss(false)
                 //setOutCancel(false)
             }
-            //.scheduleDismiss(100L)
+            .scheduleDismiss(800L)
             .setLabel("正在加载...")
             .setDetailLabel("正在设置")
         Log.d("TTTT", "显示弹窗")
         mLoadingDialog?.show(supportFragmentManager)
 
         MainScope().launch {
-            delay(100L)//模拟show()以后很快的调用dismiss()
+            delay(1000L)//模拟show()以后很快的调用dismiss()
             mLoadingDialog?.dismiss()
         }
     }

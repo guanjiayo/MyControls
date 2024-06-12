@@ -34,6 +34,7 @@ import zs.xmx.controls.R
 abstract class BaseDialog : DialogFragment() {
 
     private lateinit var mContext: Context//上下文
+    private var mFragmentTransaction: FragmentTransaction? = null
     private var mDimAmount = 0.3f//背景昏暗度
     private var mAnimStyle = 0//进入退出动画
     private var mInvisibleDismiss = true//当页面不可见时,dismiss
@@ -75,10 +76,10 @@ abstract class BaseDialog : DialogFragment() {
         initViews()
     }
 
-    override fun onPause() {
-        super.onPause()
+    override fun onStop() {
+        super.onStop()
         if (mInvisibleDismiss) {
-            dismiss()
+            mFragmentTransaction?.remove(this)?.commitAllowingStateLoss()
         }
     }
 
@@ -273,9 +274,9 @@ abstract class BaseDialog : DialogFragment() {
             val tag = this::class.java.simpleName
             val fragment = manager.findFragmentByTag(tag)
             if (fragment != null && fragment.isAdded) {
-                val fragmentTransaction: FragmentTransaction = manager.beginTransaction()
-                fragmentTransaction.remove(fragment)
-                fragmentTransaction.commitAllowingStateLoss()
+                mFragmentTransaction = manager.beginTransaction()
+                mFragmentTransaction!!.remove(fragment)
+                mFragmentTransaction!!.commitAllowingStateLoss()
             }
             try {
                 super.show(manager, tag)
