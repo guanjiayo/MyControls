@@ -17,7 +17,6 @@ import zs.xmx.wygridlayout.utils.DensityUtils;
 
 /*
  * @创建者     默小铭
- * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2017/3/16
  * @本类描述	  仿网易新闻频道管理
  * @内容说明   1.定义出一个setItem方法,动态地将每个频道的标题数据集合传递进来

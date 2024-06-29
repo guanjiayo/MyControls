@@ -1,7 +1,6 @@
 package zs.xmx.weight;
 /*
  * @创建者     mqm
- * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2017/6/14
  * @本类描述   EditText扩展 : 设置
  * @内容说明   设置在EditText内的drawableLeft/Right相对位置以及大小

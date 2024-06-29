@@ -1,7 +1,6 @@
 package zs.xmx.controls.radiogroup;
 /*
  * @创建者     默小铭
- * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2017/10/17 11:54
  * @本类描述	  可包裹其他布局的流性RadioGroup
  * @内容说明

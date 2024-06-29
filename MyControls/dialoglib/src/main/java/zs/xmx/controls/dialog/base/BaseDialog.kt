@@ -11,13 +11,11 @@ import androidx.annotation.FloatRange
 import androidx.annotation.StyleRes
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import zs.xmx.controls.R
 
 
 /*
  * @创建者     默小铭
- * @博客       http://blog.csdn.net/u012792686
  * @本类描述	   BaseDialog
  * @内容说明   onCreateView方式实现,便于后续扩展
  *
@@ -36,7 +34,6 @@ abstract class BaseDialog : DialogFragment() {
     private lateinit var mContext: Context//上下文
     private var mDimAmount = 0.3f//背景昏暗度
     private var mAnimStyle = 0//进入退出动画
-    private var mInvisibleDismiss = true//当页面不可见时,dismiss
     private var mIsFullScreen = false//是否全屏显示
     private var mIsFullScreenWidth = false//是否宽度全屏显示
     private var mWidth: Int = 0
@@ -73,13 +70,6 @@ abstract class BaseDialog : DialogFragment() {
     override fun onStart() {
         super.onStart()
         initViews()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        if (mInvisibleDismiss) {
-            dismiss()
-        }
     }
 
     private fun initViews() {
@@ -249,14 +239,6 @@ abstract class BaseDialog : DialogFragment() {
         return this
     }
 
-    /**
-     * true: 页面不可见时隐藏Dialog
-     * false: 页面不可见时,不隐藏Dialog
-     */
-    fun setInvisibleDismiss(dismiss: Boolean): BaseDialog {
-        mInvisibleDismiss = dismiss
-        return this
-    }
 
     /**
      * Dialog 是否可见
@@ -273,7 +255,7 @@ abstract class BaseDialog : DialogFragment() {
             val tag = this::class.java.simpleName
             val fragment = manager.findFragmentByTag(tag)
             if (fragment != null && fragment.isAdded) {
-                val fragmentTransaction: FragmentTransaction = manager.beginTransaction()
+                val fragmentTransaction = manager.beginTransaction()
                 fragmentTransaction.remove(fragment)
                 fragmentTransaction.commitAllowingStateLoss()
             }

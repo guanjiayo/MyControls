@@ -16,7 +16,6 @@ import zs.xmx.weight.PasswordEditText;
 
 /*
  * @创建者     mqm
- * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2017/6/15
  * @本类描述
  * @内容说明

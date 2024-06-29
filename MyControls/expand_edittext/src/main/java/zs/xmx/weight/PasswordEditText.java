@@ -1,7 +1,6 @@
 package zs.xmx.weight;
 /*
  * @创建者     mqm
- * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2017/6/14
  * @本类描述
  * @内容说明  这里的图片建议使用矢量图

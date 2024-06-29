@@ -1,7 +1,6 @@
 package zs.xmx.utils;
 /*
  * @创建者     mqm
- * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2017/6/14
  * @本类描述	  ${TODO}
  * @内容说明   ${TODO}

@@ -20,7 +20,6 @@ import zs.xmx.utils.DensityUtils;
 
 /*
  * @创建者     mqm
- * @博客       http://blog.csdn.net/u012792686
  * @创建时间   2017/6/13
  * @本类描述	  EditText扩展 : 清除全部输入内容
  * @内容说明
