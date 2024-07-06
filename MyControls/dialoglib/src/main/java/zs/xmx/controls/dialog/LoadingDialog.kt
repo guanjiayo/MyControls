@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.os.Handler
 import android.os.Looper
 import android.text.TextUtils
-import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.TextView
@@ -28,9 +27,10 @@ class LoadingDialog private constructor() : BaseDialog() {
     private var mLabelColor = Color.WHITE
     private var mDetailColor = Color.WHITE
     private var mAnimateSpeed: Int = 1//动画速度
-    private var mDismissed: Boolean = false//标记位,防止重复调用dismiss
-    private val mDismissTimer: Handler by lazy { Handler(Looper.getMainLooper()) }
-    private var mStartTime = -1L//开始显示弹窗的时间戳
+    private var mDismissTimer: Handler? = null
+    private var mDismissed: Boolean = false //是否隐藏Dialog标记位
+    private var mGraceTimer: Handler? = null
+    private var mGraceTimeMs: Long = 0L //宽限时间
 
     override fun setLayout(): Int {
         return R.layout.dialog_loading
@@ -85,11 +85,23 @@ class LoadingDialog private constructor() : BaseDialog() {
     }
 
     /**
+     * 宽限期
+     * 如果执行任务在宽限期之前完成,则不显示弹窗
+     */
+    fun setGraceTime(graceTimeMs: Long): LoadingDialog {
+        mGraceTimeMs = graceTimeMs
+        return this
+    }
+
+    /**
      * 设置Dialog自动消失时间
      * @param duration 毫秒
      */
     fun scheduleDismiss(duration: Long, listener: (() -> Unit)? = null): LoadingDialog {
-        mDismissTimer.postDelayed({
+        if (mDismissTimer == null) {
+            mDismissTimer = Handler(Looper.getMainLooper())
+        }
+        mDismissTimer!!.postDelayed({
             listener?.invoke()
             dismiss()
         }, duration)
@@ -100,44 +112,54 @@ class LoadingDialog private constructor() : BaseDialog() {
     override fun show(manager: FragmentManager): BaseDialog {
         if (!isShowing) {
             mDismissed = false
-            mStartTime = System.currentTimeMillis()
-            super.show(manager, tag)
+            if (mGraceTimeMs == 0L) {
+                super.show(manager, LoadingDialog::class.java.simpleName)
+            } else {
+                if (mGraceTimer == null) {
+                    mGraceTimer = Handler(Looper.getMainLooper())
+                }
+                mGraceTimer!!.postDelayed({
+                    if (!mDismissed) {
+                        super.show(manager, LoadingDialog::class.java.simpleName)
+                    }
+
+                }, mGraceTimeMs)
+            }
         }
         return this
     }
 
     override fun dismiss() {
+        mDismissed = true
         if (isShowing) {
-            val diff = System.currentTimeMillis() - mStartTime
-            if (diff >= MIN_DELAY_MS) {
-                Log.d("TTTT", "隐藏弹窗222")
-                super.dismiss()
-            } else {
-                if (!mDismissed) {
-                    mDismissTimer.postDelayed({
-                        mDismissed = false
-                        Log.d("TTTT", "隐藏弹窗333")
-                        super.dismiss()
-                    }, MIN_DELAY_MS - diff)
-                    mDismissed = true
-                }
-            }
+            super.dismiss()
+        }
+        if (mGraceTimer != null) {
+            mGraceTimer!!.removeCallbacksAndMessages(null)
+            mGraceTimer = null
+        }
+        if (mDismissTimer != null) {
+            mDismissTimer!!.removeCallbacksAndMessages(null)
+            mDismissTimer = null
         }
     }
 
     override fun onDestroyView() {
-        mDismissed = false
-        mStartTime = -1
-        mDismissTimer.removeCallbacksAndMessages(null)
+        if (mGraceTimer != null) {
+            mGraceTimer!!.removeCallbacksAndMessages(null)
+            mGraceTimer = null
+        }
+        if (mDismissTimer != null) {
+            mDismissTimer!!.removeCallbacksAndMessages(null)
+            mDismissTimer = null
+        }
         super.onDestroyView()
     }
 
     companion object {
-        private const val MIN_DELAY_MS = 500L//显示到隐藏的最小可见时间
         fun newInstance() = LoadingDialog().apply {
             setDimAmount(0.3f)//背景暗度
             setGravity(Gravity.CENTER)//显示位置
         }
-
     }
 }
