@@ -21,7 +21,10 @@ class RadioSelectAdapter(private val mContext: Context) :
     private var mDatas = mutableListOf<String>()
 
     //单选标记,如果需要默认值,可以设置为0
-    private var lastClickPosition = -1
+    private val defPosition = -1
+
+    //最后选中的position
+    private var lastClickPosition = defPosition
 
     fun setData(datas: MutableList<String>?) {
         mDatas.clear()
@@ -33,8 +36,26 @@ class RadioSelectAdapter(private val mContext: Context) :
      * 设置item选中状态
      */
     private fun setSelect(position: Int) {
+        //已选中的不再处理
+        if (lastClickPosition == position) return
+        //取消之前选中的状态
+        if (lastClickPosition != defPosition) {
+            notifyItemChanged(lastClickPosition)
+        }
+        //更新最新的选中状态
         lastClickPosition = position
-        notifyDataSetChanged()
+        notifyItemChanged(lastClickPosition)
+    }
+
+    /**
+     * 恢复默认选中状态
+     */
+    fun resetSelect() {
+        if (lastClickPosition != defPosition) {
+            notifyItemChanged(lastClickPosition)
+        }
+        lastClickPosition = defPosition
+        notifyItemChanged(lastClickPosition)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

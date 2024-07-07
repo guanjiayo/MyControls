@@ -55,7 +55,7 @@ class CheckItemAdapter(private val mContext: Context) :
             // 如果不包含，则添加
             positionSet.add(position)
         }
-        notifyDataSetChanged()
+        notifyItemChanged(position)
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
