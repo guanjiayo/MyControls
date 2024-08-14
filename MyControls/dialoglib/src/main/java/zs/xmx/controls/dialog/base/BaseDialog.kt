@@ -1,6 +1,7 @@
 package zs.xmx.controls.dialog.base
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -244,7 +245,7 @@ abstract class BaseDialog : DialogFragment() {
      * Dialog 是否可见
      */
     val isShowing: Boolean
-        get() = dialog?.isShowing == true
+        get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) isVisible else dialog?.isShowing == true
 
 
     /**
